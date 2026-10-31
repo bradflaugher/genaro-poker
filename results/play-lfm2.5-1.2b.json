@@ -1,0 +1,4819 @@
+{
+ "summary": {
+  "name": "lfm2.5-1.2b",
+  "mode": "server",
+  "hands": 1200,
+  "bb_per_100": -79.9,
+  "bb_per_100_stderr": 79.6,
+  "model_decisions": 2669,
+  "fallback_rate": 0.0,
+  "ms_per_decision_parallel": 14735,
+  "gen_tokens_per_decision": 23.7,
+  "leak_rate": 0.0207,
+  "repeat_rate": 0.1739,
+  "over_12_words": 0.1281,
+  "words_per_line": 8.0
+ },
+ "sample_log": [
+  {
+   "hand": 1,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 2,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 3,
+   "street": "Pre-draw",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 4,
+   "street": "4th street",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 4,
+   "street": "4th street",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Verily, I shall fold my humble hand!\"}",
+   "decision": "Fold",
+   "say": "Verily, I shall fold my humble hand!"
+  },
+  {
+   "hand": 5,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 20, \"say\": \"Boo! That's sharp, Pip!\"}",
+   "decision": "RaiseTo(total=20)",
+   "say": "Boo! That's sharp, Pip!"
+  },
+  {
+   "hand": 5,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 10, \"say\": \"Boo! That's a good play, Souffle!\"}",
+   "decision": "RaiseTo(total=10)",
+   "say": "Boo! That's a good play, Souffle!"
+  },
+  {
+   "hand": 5,
+   "street": "Turn",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 970, \"say\": \"Boo! That's a bold raise, Pip!\"}",
+   "decision": "RaiseTo(total=970)",
+   "say": "Boo! That's a bold raise, Pip!"
+  },
+  {
+   "hand": 6,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 10, \"say\": \"Hey big guy, you almost got me!\"}",
+   "decision": "Call",
+   "say": "Hey big guy, you almost got me!"
+  },
+  {
+   "hand": 6,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 35, \"say\": \"Hey big guy, you almost got me!\"}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 6,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 145, \"say\": \"The pot's huge, buddy! Better bet!\"}",
+   "decision": "Call",
+   "say": "The pot's huge, buddy! Better bet!"
+  },
+  {
+   "hand": 6,
+   "street": "Flop",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 810}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 6,
+   "street": "Discard",
+   "speak": true,
+   "raw": "{\"discard\": [1], \"say\": \"GAME OVER, man!\"}",
+   "decision": "Discard(indices=[0])",
+   "say": "GAME OVER, man!"
+  },
+  {
+   "hand": 7,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Take me to your dealer!\"}",
+   "decision": "Check",
+   "say": "Take me to your dealer!"
+  },
+  {
+   "hand": 7,
+   "street": "Flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 8,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 50, \"say\": \"Hey Natasha, that 100 felt a little sharp. Let's keep it tight!\"}",
+   "decision": "Call",
+   "say": "Hey Natasha, that 100 felt a little sharp. Let's keep it tight!"
+  },
+  {
+   "hand": 8,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 150, \"say\": \"Time to flex those cards, bro!\"}",
+   "decision": "RaiseTo(total=150)",
+   "say": "Time to flex those cards, bro!"
+  },
+  {
+   "hand": 8,
+   "street": "Turn",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 100, \"say\": \"Time to flex those cards, bro!\"}",
+   "decision": "RaiseTo(total=100)",
+   "say": null
+  },
+  {
+   "hand": 8,
+   "street": "Turn",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 1500, \"say\": \"Sure, why not!\"}",
+   "decision": "RaiseTo(total=1500)",
+   "say": null
+  },
+  {
+   "hand": 8,
+   "street": "River",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 1500}",
+   "decision": "RaiseTo(total=1500)",
+   "say": null
+  },
+  {
+   "hand": 9,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Clank 3 folds. Better watch your cards, bro.\"}",
+   "decision": "Fold",
+   "say": "Clank 3 folds. Better watch your cards, bro."
+  },
+  {
+   "hand": 10,
+   "street": "4th street",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Walk the plank, landlubber!\"}",
+   "decision": "Check",
+   "say": "Walk the plank, landlubber!"
+  },
+  {
+   "hand": 10,
+   "street": "5th street",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 11,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Let's see a card.\"}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 11,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 200, \"say\": \"Keep your eyes on that hand, lady!\"}",
+   "decision": "Call",
+   "say": "Keep your eyes on that hand, lady!"
+  },
+  {
+   "hand": 11,
+   "street": "Turn",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 1000}",
+   "decision": "RaiseTo(total=1000)",
+   "say": null
+  },
+  {
+   "hand": 11,
+   "street": "Turn",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 5200, \"say\": \"Lady Shieldmaiden 3 folds! You're really gonna go big!\"}",
+   "decision": "RaiseTo(total=5200)",
+   "say": "Lady Shieldmaiden 3 folds! You're really gonna go big!"
+  },
+  {
+   "hand": 11,
+   "street": "Turn",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 4500, \"say\": \"Boo Radley 2: Let's dance!\"}",
+   "decision": "Call",
+   "say": "Boo Radley 2: Let's dance!"
+  },
+  {
+   "hand": 12,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 25, \"say\": \"Madam Bookworm, you've got the button! Keep it!\"}",
+   "decision": "Call",
+   "say": "Madam Bookworm, you've got the button! Keep it!"
+  },
+  {
+   "hand": 12,
+   "street": "Flop",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 12,
+   "street": "Flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 13,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Gus the Goose 3 says 'Nope.' \u2013 your cards are hiding their strength!\"}",
+   "decision": "Fold",
+   "say": "Gus the Goose 3 says 'Nope.' \u2013 your cards are hiding their strength!"
+  },
+  {
+   "hand": 14,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Verily, my cards are weak, yet I hold no pride.\"}",
+   "decision": "Fold",
+   "say": "Verily, my cards are weak, yet I hold no pride."
+  },
+  {
+   "hand": 15,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Let's see if your cards hold up.\"}",
+   "decision": "Check",
+   "say": "Let's see if your cards hold up."
+  },
+  {
+   "hand": 15,
+   "street": "Draw",
+   "speak": true,
+   "raw": "{\"discard\": [1, 2, 4], \"say\": \"Time to tighten up those tells, buddy.\"}",
+   "decision": "Discard(indices=[0, 1, 3])",
+   "say": "Time to tighten up those tells, buddy."
+  },
+  {
+   "hand": 15,
+   "street": "Post-draw",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 15,
+   "street": "Post-draw",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 16,
+   "street": "3rd street",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 17,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 18,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 19,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 19,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 15, \"say\": \"Keep your cards safe, Mama Marinara.\"}",
+   "decision": "Call",
+   "say": "Keep your cards safe, Mama Marinara."
+  },
+  {
+   "hand": 19,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 60, \"say\": \"The board's got some Qh 5d 9c - watch that!\"}",
+   "decision": "Call",
+   "say": "The board's got some Qh 5d 9c - watch that!"
+  },
+  {
+   "hand": 19,
+   "street": "Turn",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 10, \"say\": \"Keep your cards safe, Mama Marinara.\"}",
+   "decision": "RaiseTo(total=10)",
+   "say": null
+  },
+  {
+   "hand": 19,
+   "street": "Turn",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 255}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 19,
+   "street": "River",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 650, \"say\": \"Pot's tight, but I've got a plan.\"}",
+   "decision": "Call",
+   "say": "Pot's tight, but I've got a plan."
+  },
+  {
+   "hand": 20,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Ghostly Gertrude, you're not the only one with a weak hand!\"}",
+   "decision": "Fold",
+   "say": "Ghostly Gertrude, you're not the only one with a weak hand!"
+  },
+  {
+   "hand": 21,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Fox in the deck, my fire's low.\"}",
+   "decision": "Fold",
+   "say": "Fox in the deck, my fire's low."
+  },
+  {
+   "hand": 22,
+   "street": "3rd street",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 23,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Uncle Moe 3 just folded, nice move!\"}",
+   "decision": "Check",
+   "say": "Uncle Moe 3 just folded, nice move!"
+  },
+  {
+   "hand": 1,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 2,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 3,
+   "street": "Pre-draw",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 3,
+   "street": "Draw",
+   "speak": true,
+   "raw": "{\"discard\": [1, 2, 5], \"say\": \"Let's see who's got the chips left.\"}",
+   "decision": "Discard(indices=[0, 1, 4])",
+   "say": "Let's see who's got the chips left."
+  },
+  {
+   "hand": 3,
+   "street": "Post-draw",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Looks like your chip count's got a secret.\"}",
+   "decision": "Check",
+   "say": "Looks like your chip count's got a secret."
+  },
+  {
+   "hand": 4,
+   "street": "3rd street",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 40, \"say\": \"Looks like the rain just rolled in!\"}",
+   "decision": "Call",
+   "say": "Looks like the rain just rolled in!"
+  },
+  {
+   "hand": 4,
+   "street": "4th street",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Looks like the rain just rolled in!\"}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 4,
+   "street": "4th street",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Looks like the rain just rolled in!\"}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 5,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 10}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 5,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 10, \"say\": \"Hey guys, this hand's a monster!\"}",
+   "decision": "RaiseTo(total=10)",
+   "say": "Hey guys, this hand's a monster!"
+  },
+  {
+   "hand": 5,
+   "street": "Turn",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 980, \"say\": \"Hey guys, this hand's a monster! Keep your cards safe!\"}",
+   "decision": "RaiseTo(total=980)",
+   "say": null
+  },
+  {
+   "hand": 6,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 200}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 6,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 200, \"say\": \"Lady, I think you're hiding something!\"}",
+   "decision": "RaiseTo(total=200)",
+   "say": "Lady, I think you're hiding something!"
+  },
+  {
+   "hand": 6,
+   "street": "Discard",
+   "speak": true,
+   "raw": "{\"discard\": [3], \"say\": \"Time to turn up the heat!\"}",
+   "decision": "Discard(indices=[2])",
+   "say": "Time to turn up the heat!"
+  },
+  {
+   "hand": 6,
+   "street": "Turn",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 2000}",
+   "decision": "RaiseTo(total=2000)",
+   "say": null
+  },
+  {
+   "hand": 6,
+   "street": "Turn",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 6300}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 6,
+   "street": "River",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 11300}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 7,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"My dear Misty, your move is bold, but let's keep the game fair!\"}",
+   "decision": "Check",
+   "say": "My dear Misty, your move is bold, but let's keep the game fair!"
+  },
+  {
+   "hand": 7,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"My dear Misty, your move is bold, but let's keep the game fair!\"}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 8,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Keep it quiet, kid.\"}",
+   "decision": "Fold",
+   "say": "Keep it quiet, kid."
+  },
+  {
+   "hand": 9,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 200, \"say\": \"Bow before the royal flush!\"}",
+   "decision": "RaiseTo(total=200)",
+   "say": "Bow before the royal flush!"
+  },
+  {
+   "hand": 9,
+   "street": "Draw",
+   "speak": true,
+   "raw": "{\"discard\": [2, 4], \"say\": \"Shuffle up my luck, Duke!\"}",
+   "decision": "Discard(indices=[1, 3])",
+   "say": null
+  },
+  {
+   "hand": 9,
+   "street": "Post-draw",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 200, \"say\": \"Shaka, are you still thinking about that big blind?\"}",
+   "decision": "RaiseTo(total=200)",
+   "say": "Shaka, are you still thinking about that big blind?"
+  },
+  {
+   "hand": 10,
+   "street": "4th street",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Fear not, my noble friend, your cards remain secure!\"}",
+   "decision": "Check",
+   "say": "Fear not, my noble friend, your cards remain secure!"
+  },
+  {
+   "hand": 10,
+   "street": "5th street",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Fear not, my noble friend, your cards remain secure!\"}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 10,
+   "street": "5th street",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 11,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Look out, it's a straight-up storm!\"}",
+   "decision": "Check",
+   "say": "Look out, it's a straight-up storm!"
+  },
+  {
+   "hand": 11,
+   "street": "Flop",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 11,
+   "street": "Turn",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 1000}",
+   "decision": "RaiseTo(total=1000)",
+   "say": null
+  },
+  {
+   "hand": 12,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Nope, sweetie, my cats are watching.\"}",
+   "decision": "Fold",
+   "say": "Nope, sweetie, my cats are watching."
+  },
+  {
+   "hand": 13,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 40}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 13,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 110, \"say\": \"Glenda, you're all talk\u2014let's ride this wave!\"}",
+   "decision": "Call",
+   "say": "Glenda, you're all talk\u2014let's ride this wave!"
+  },
+  {
+   "hand": 13,
+   "street": "Flop",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 1850}",
+   "decision": "RaiseTo(total=1850)",
+   "say": null
+  },
+  {
+   "hand": 14,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"The cards whisper secrets, but my chips are safer.\"}",
+   "decision": "Fold",
+   "say": "The cards whisper secrets, but my chips are safer."
+  },
+  {
+   "hand": 15,
+   "street": "Pre-draw",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 15,
+   "street": "Draw",
+   "speak": true,
+   "raw": "{\"discard\": [1, 2, 3], \"say\": \"Looks like Mack's got a chip bomb, but I'm keeping the quiet!\"}",
+   "decision": "Discard(indices=[0, 1, 2])",
+   "say": "Looks like Mack's got a chip bomb, but I'm keeping the quiet!"
+  },
+  {
+   "hand": 15,
+   "street": "Post-draw",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Forecast: chips raining on me!\"}",
+   "decision": "Check",
+   "say": "Forecast: chips raining on me!"
+  },
+  {
+   "hand": 16,
+   "street": "3rd street",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 20}",
+   "decision": "RaiseTo(total=20)",
+   "say": null
+  },
+  {
+   "hand": 16,
+   "street": "4th street",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 20, \"say\": \"Aye, me hearties, the pot's a river\u2014will I dance in it?\"}",
+   "decision": "RaiseTo(total=20)",
+   "say": "Aye, me hearties, the pot's a river\u2014will I dance in it?"
+  },
+  {
+   "hand": 16,
+   "street": "5th street",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 40}",
+   "decision": "RaiseTo(total=40)",
+   "say": null
+  },
+  {
+   "hand": 16,
+   "street": "6th street",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 40}",
+   "decision": "RaiseTo(total=40)",
+   "say": null
+  },
+  {
+   "hand": 16,
+   "street": "7th street",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 40}",
+   "decision": "RaiseTo(total=40)",
+   "say": null
+  },
+  {
+   "hand": 17,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 100}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 17,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 9900, \"say\": \"You look like you can take me to the edge!\"}",
+   "decision": "RaiseTo(total=9900)",
+   "say": "You look like you can take me to the edge!"
+  },
+  {
+   "hand": 18,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 100}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 18,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 200, \"say\": \"Well, lookit that big Steve's bluff! You're gonna need more than a fish to pull that!\"}",
+   "decision": "Call",
+   "say": "Well, lookit that big Steve's bluff! You're gonna need more than a fish to pull\u2026"
+  },
+  {
+   "hand": 18,
+   "street": "Discard",
+   "speak": true,
+   "raw": "{\"discard\": [2], \"say\": \"Well, lookit that big Steve's bluff! You're gonna need more than a fish to pull...\"}",
+   "decision": "Discard(indices=[1])",
+   "say": null
+  },
+  {
+   "hand": 18,
+   "street": "Turn",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 100, \"say\": \"Well, lookit that big Steve's bluff! You're gonna need more than a fish to pull...\"}",
+   "decision": "RaiseTo(total=100)",
+   "say": null
+  },
+  {
+   "hand": 18,
+   "street": "Turn",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 9700}",
+   "decision": "RaiseTo(total=9700)",
+   "say": null
+  },
+  {
+   "hand": 19,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"The pot's a wave, but I'm wiping it out.\"}",
+   "decision": "Fold",
+   "say": "The pot's a wave, but I'm wiping it out."
+  },
+  {
+   "hand": 1,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 2,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 3,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Well now that's a clever bluff, Gertrude!\"}",
+   "decision": "Check",
+   "say": "Well now that's a clever bluff, Gertrude!"
+  },
+  {
+   "hand": 3,
+   "street": "Draw",
+   "speak": false,
+   "raw": "{\"discard\": [1, 4, 5]}",
+   "decision": "Discard(indices=[0, 3, 4])",
+   "say": null
+  },
+  {
+   "hand": 3,
+   "street": "Post-draw",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 4,
+   "street": "3rd street",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 200, \"say\": \"Read 'em and weep. Eventually.\"}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 4,
+   "street": "4th street",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 4,
+   "street": "4th street",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 5,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 100, \"say\": \"Jackpot, baby!\"}",
+   "decision": "Call",
+   "say": "Jackpot, baby!"
+  },
+  {
+   "hand": 5,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 250}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 5,
+   "street": "Flop",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 9650}",
+   "decision": "RaiseTo(total=9650)",
+   "say": null
+  },
+  {
+   "hand": 6,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 200, \"say\": \"The cat watches, undaunted by clowns!\"}",
+   "decision": "Call",
+   "say": "The cat watches, undaunted by clowns!"
+  },
+  {
+   "hand": 6,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 700}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 6,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"The cat chuckles, but I dare not name my hand.\"}",
+   "decision": "Check",
+   "say": "The cat chuckles, but I dare not name my hand."
+  },
+  {
+   "hand": 6,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"The cat watches, undaunted by clowns!\"}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 7,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Security confirmed, bluffing not needed.\"}",
+   "decision": "Check",
+   "say": "Security confirmed, bluffing not needed."
+  },
+  {
+   "hand": 7,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 30, \"say\": \"DOES NOT COMPUTE. Better watch your cards.\"}",
+   "decision": "RaiseTo(total=30)",
+   "say": "DOES NOT COMPUTE. Better watch your cards."
+  },
+  {
+   "hand": 7,
+   "street": "Turn",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 150, \"say\": \"King Diamondo 3, your bluff's tight!\"}",
+   "decision": "RaiseTo(total=150)",
+   "say": "King Diamondo 3, your bluff's tight!"
+  },
+  {
+   "hand": 8,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"A storm is brewing!\"}",
+   "decision": "Fold",
+   "say": "A storm is brewing!"
+  },
+  {
+   "hand": 9,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Zorp 3 is too late, cards are hiding.\"}",
+   "decision": "Fold",
+   "say": "Zorp 3 is too late, cards are hiding."
+  },
+  {
+   "hand": 10,
+   "street": "3rd street",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Lucky Larry 3 should fold.\"}",
+   "decision": "Fold",
+   "say": "Lucky Larry 3 should fold."
+  },
+  {
+   "hand": 11,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 40, \"say\": \"Pot's tight, but I'm just spitting chance.\"}",
+   "decision": "Call",
+   "say": "Pot's tight, but I'm just spitting chance."
+  },
+  {
+   "hand": 11,
+   "street": "Flop",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 110}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 11,
+   "street": "Turn",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 280}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 11,
+   "street": "River",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 1480}",
+   "decision": "RaiseTo(total=1480)",
+   "say": null
+  },
+  {
+   "hand": 11,
+   "street": "River",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 70}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 12,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 500, \"say\": \"Well, Professor, I'm just sitting here thinking my cards are hiding in my pocket.\"}",
+   "decision": "RaiseTo(total=500)",
+   "say": "Well, Professor, I'm just sitting here thinking my cards are hiding in my\u2026"
+  },
+  {
+   "hand": 13,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Time for a little culinary caution, my friends!\"}",
+   "decision": "Fold",
+   "say": "Time for a little culinary caution, my friends!"
+  },
+  {
+   "hand": 14,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 15,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"You hear that? She's sizing me up like a cat on a hot tin roof.\"}",
+   "decision": "Check",
+   "say": "You hear that? She's sizing me up like a cat on a hot tin roof."
+  },
+  {
+   "hand": 15,
+   "street": "Draw",
+   "speak": true,
+   "raw": "{\"discard\": [3, 4, 5], \"say\": \"Well now, listen close \u2014 these cards don't tell their secrets to nobody.\"}",
+   "decision": "Discard(indices=[2, 3, 4])",
+   "say": "Well now, listen close \u2014 these cards don't tell their secrets to nobody."
+  },
+  {
+   "hand": 15,
+   "street": "Post-draw",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 15,
+   "street": "Post-draw",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Well, look at that \u2014 that bet was cheap, but you're playing smart.\"}",
+   "decision": "Fold",
+   "say": "Well, look at that \u2014 that bet was cheap, but you're playing smart."
+  },
+  {
+   "hand": 16,
+   "street": "3rd street",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 17,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 10}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 17,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 25, \"say\": \"You're still got it, buddy!\"}",
+   "decision": "Call",
+   "say": "You're still got it, buddy!"
+  },
+  {
+   "hand": 17,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 105, \"say\": \"Pot's fire, buddy! This feels like takeoff!\"}",
+   "decision": "RaiseTo(total=105)",
+   "say": "Pot's fire, buddy! This feels like takeoff!"
+  },
+  {
+   "hand": 17,
+   "street": "Turn",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 105, \"say\": \"Let's see that pot!\"}",
+   "decision": "RaiseTo(total=105)",
+   "say": "Let's see that pot!"
+  },
+  {
+   "hand": 17,
+   "street": "River",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 10}",
+   "decision": "RaiseTo(total=10)",
+   "say": null
+  },
+  {
+   "hand": 17,
+   "street": "River",
+   "speak": true,
+   "raw": "{\"action\": \"allin\", \"amount\": 755, \"say\": \"Let's see that pot, buddy!\"}",
+   "decision": "RaiseTo(total=755)",
+   "say": null
+  },
+  {
+   "hand": 18,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 19,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Well now, that's a tough read, but I'm keepin' my cards close!\"}",
+   "decision": "Check",
+   "say": "Well now, that's a tough read, but I'm keepin' my cards close!"
+  },
+  {
+   "hand": 19,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"This table ain't big enough for the both of us.\"}",
+   "decision": "Fold",
+   "say": "This table ain't big enough for the both of us."
+  },
+  {
+   "hand": 20,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 21,
+   "street": "Pre-draw",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 22,
+   "street": "3rd street",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Verily, that man folds\u2014his cards lie.\"}",
+   "decision": "Fold",
+   "say": "Verily, that man folds\u2014his cards lie."
+  },
+  {
+   "hand": 23,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 40, \"say\": \"Hey Radley, you sure you can't hear me?\"}",
+   "decision": "Call",
+   "say": "Hey Radley, you sure you can't hear me?"
+  },
+  {
+   "hand": 23,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 1940, \"say\": \"That board's got a story, kid. Watch me tell it.\"}",
+   "decision": "RaiseTo(total=1940)",
+   "say": "That board's got a story, kid. Watch me tell it."
+  },
+  {
+   "hand": 24,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Rocket Rosa, you're gonna regret that!\"}",
+   "decision": "Fold",
+   "say": "Rocket Rosa, you're gonna regret that!"
+  },
+  {
+   "hand": 25,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Hark! The stakes are small, but my resolve remains unbroken. Let us keep my cards close!\"}",
+   "decision": "Fold",
+   "say": "Hark! The stakes are small, but my resolve remains unbroken. Let us keep my\u2026"
+  },
+  {
+   "hand": 1,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Arrr, that call looks weak, matey!\"}",
+   "decision": "Fold",
+   "say": "Arrr, that call looks weak, matey!"
+  },
+  {
+   "hand": 2,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 3,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"More, more, more!\"}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 4,
+   "street": "3rd street",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 10}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 4,
+   "street": "4th street",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Watch Rocket Rosa 3 get burned, Mic Drop!\"}",
+   "decision": "Fold",
+   "say": "Watch Rocket Rosa 3 get burned, Mic Drop!"
+  },
+  {
+   "hand": 5,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Look at that bet, Catface! You're getting spicy!\"}",
+   "decision": "Fold",
+   "say": "Look at that bet, Catface! You're getting spicy!"
+  },
+  {
+   "hand": 6,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 10}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 6,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 10, \"say\": \"Knock knock. You got this.\"}",
+   "decision": "RaiseTo(total=10)",
+   "say": "Knock knock. You got this."
+  },
+  {
+   "hand": 6,
+   "street": "Discard",
+   "speak": true,
+   "raw": "{\"discard\": [2], \"say\": \"My hoard grows, but I keep my secrets safe!\"}",
+   "decision": "Discard(indices=[1])",
+   "say": "My hoard grows, but I keep my secrets safe!"
+  },
+  {
+   "hand": 6,
+   "street": "Turn",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 10}",
+   "decision": "RaiseTo(total=10)",
+   "say": null
+  },
+  {
+   "hand": 6,
+   "street": "Turn",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 65}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 6,
+   "street": "River",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 190, \"say\": \"Sure, why not.\"}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 7,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Jackpot, baby!\"}",
+   "decision": "Check",
+   "say": "Jackpot, baby!"
+  },
+  {
+   "hand": 7,
+   "street": "Flop",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 7,
+   "street": "Turn",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 100, \"say\": \"Oh my, look at that board! That 3c Qc gives me a killer chance!\"}",
+   "decision": "RaiseTo(total=100)",
+   "say": "Oh my, look at that board! That 3c Qc gives me a killer chance!"
+  },
+  {
+   "hand": 7,
+   "street": "River",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Check, buddy! That board\u2019s got fire!\"}",
+   "decision": "Check",
+   "say": "Check, buddy! That board\u2019s got fire!"
+  },
+  {
+   "hand": 8,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Nope, Shush Sheila 3 said that!\"}",
+   "decision": "Fold",
+   "say": "Nope, Shush Sheila 3 said that!"
+  },
+  {
+   "hand": 9,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Well, looks like the whispers are falling silent.\"}",
+   "decision": "Fold",
+   "say": "Well, looks like the whispers are falling silent."
+  },
+  {
+   "hand": 10,
+   "street": "4th street",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Lady Ophelia 3, I'm folding!\"}",
+   "decision": "Fold",
+   "say": "Lady Ophelia 3, I'm folding!"
+  },
+  {
+   "hand": 11,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Call me maybe.\"}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 11,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 60, \"say\": \"You think you can catch me, Glitch?\"}",
+   "decision": "RaiseTo(total=60)",
+   "say": "You think you can catch me, Glitch?"
+  },
+  {
+   "hand": 11,
+   "street": "Turn",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 260, \"say\": \"You\u2019re playin\u2019 like a man with a badge in hand.\"}",
+   "decision": "RaiseTo(total=260)",
+   "say": "You\u2019re playin\u2019 like a man with a badge in hand."
+  },
+  {
+   "hand": 11,
+   "street": "Turn",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 1480}",
+   "decision": "RaiseTo(total=1480)",
+   "say": null
+  },
+  {
+   "hand": 11,
+   "street": "Turn",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 440, \"say\": \"You think you can catch me, Glitch? I\u2019ve got a hand that\u2019s been brewin\u2019 since midnight.\"}",
+   "decision": "Call",
+   "say": "You think you can catch me, Glitch? I\u2019ve got a hand that\u2019s been brewin\u2019 since\u2026"
+  },
+  {
+   "hand": 12,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 10000, \"say\": \"Come on, you lot! I'm bluffing hard!\"}",
+   "decision": "RaiseTo(total=10000)",
+   "say": "Come on, you lot! I'm bluffing hard!"
+  },
+  {
+   "hand": 13,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 14,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 15,
+   "street": "Pre-draw",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 15,
+   "street": "Draw",
+   "speak": true,
+   "raw": "{\"discard\": [1, 2, 3], \"say\": \"Well that's a handful, buddy!\"}",
+   "decision": "Discard(indices=[0, 1, 2])",
+   "say": "Well that's a handful, buddy!"
+  },
+  {
+   "hand": 15,
+   "street": "Post-draw",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Well that's a handful, buddy!\"}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 16,
+   "street": "3rd street",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 50}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 16,
+   "street": "4th street",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Boo-hoo! That's a mighty card!\"}",
+   "decision": "Check",
+   "say": "Boo-hoo! That's a mighty card!"
+  },
+  {
+   "hand": 16,
+   "street": "5th street",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Boo-hoo! That's a mighty card!\"}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 16,
+   "street": "5th street",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Boo-hoo! That's a mighty card!\"}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 17,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 120}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 17,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 280, \"say\": \"You're up, Princess. Let's see if your chip count can handle it.\"}",
+   "decision": "Call",
+   "say": "You're up, Princess. Let's see if your chip count can handle it."
+  },
+  {
+   "hand": 17,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Feeling lucky.\"}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 18,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 19,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Hey, don't let the cards trick you, kid!\"}",
+   "decision": "Check",
+   "say": "Hey, don't let the cards trick you, kid!"
+  },
+  {
+   "hand": 19,
+   "street": "Flop",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 19,
+   "street": "Flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 20,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 400, \"say\": \"That's a strong raise, Pete! Hope you win!\"}",
+   "decision": "RaiseTo(total=400)",
+   "say": "That's a strong raise, Pete! Hope you win!"
+  },
+  {
+   "hand": 20,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 400, \"say\": \"Time for a big move, Gertrude!\"}",
+   "decision": "RaiseTo(total=400)",
+   "say": "Time for a big move, Gertrude!"
+  },
+  {
+   "hand": 20,
+   "street": "Turn",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 200}",
+   "decision": "RaiseTo(total=200)",
+   "say": null
+  },
+  {
+   "hand": 20,
+   "street": "River",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 2000, \"say\": \"The pot's got spirit! Let's see who's ready!\"}",
+   "decision": "RaiseTo(total=2000)",
+   "say": "The pot's got spirit! Let's see who's ready!"
+  },
+  {
+   "hand": 21,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Fold, cards are hiding!\"}",
+   "decision": "Fold",
+   "say": "Fold, cards are hiding!"
+  },
+  {
+   "hand": 22,
+   "street": "4th street",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Hey Glitch, you look like you're counting cash like it's a HIIT interval!\"}",
+   "decision": "Check",
+   "say": "Hey Glitch, you look like you're counting cash like it's a HIIT interval!"
+  },
+  {
+   "hand": 22,
+   "street": "5th street",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Man, you're burning the board like a HIIT session!\"}",
+   "decision": "Fold",
+   "say": "Man, you're burning the board like a HIIT session!"
+  },
+  {
+   "hand": 23,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Fold, wise sir!\"}",
+   "decision": "Check",
+   "say": "Fold, wise sir!"
+  },
+  {
+   "hand": 23,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 1000, \"say\": \"My honor compels a bold stand, like a knight facing the storm!\"}",
+   "decision": "RaiseTo(total=1000)",
+   "say": "My honor compels a bold stand, like a knight facing the storm!"
+  },
+  {
+   "hand": 1,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 2,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Big Steve, your big blind's tempting, but I've got a weak hand. Let's see if you can read me!\"}",
+   "decision": "Fold",
+   "say": "Big Steve, your big blind's tempting, but I've got a weak hand. Let's see if\u2026"
+  },
+  {
+   "hand": 3,
+   "street": "Pre-draw",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 10}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 3,
+   "street": "Draw",
+   "speak": true,
+   "raw": "{\"discard\": [1, 3, 4], \"say\": \"Stay sharp, agent.\"}",
+   "decision": "Discard(indices=[0, 2, 3])",
+   "say": "Stay sharp, agent."
+  },
+  {
+   "hand": 3,
+   "street": "Post-draw",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 20, \"say\": \"Shaken, not shuffled.\"}",
+   "decision": "Call",
+   "say": "Shaken, not shuffled."
+  },
+  {
+   "hand": 3,
+   "street": "Post-draw",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 40}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 3,
+   "street": "Post-draw",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 20}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 4,
+   "street": "3rd street",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 3, \"say\": \"My cards are a mystery, but I'm ready to play!\"}",
+   "decision": "Call",
+   "say": "My cards are a mystery, but I'm ready to play!"
+  },
+  {
+   "hand": 4,
+   "street": "4th street",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 5,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Your bluff's a bit strong, Prince.\"}",
+   "decision": "Fold",
+   "say": "Your bluff's a bit strong, Prince."
+  },
+  {
+   "hand": 6,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Checkmate, my chips are safe.\"}",
+   "decision": "Fold",
+   "say": "Checkmate, my chips are safe."
+  },
+  {
+   "hand": 7,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 20, \"say\": \"Fine, fine, buddy.\"}",
+   "decision": "RaiseTo(total=20)",
+   "say": "Fine, fine, buddy."
+  },
+  {
+   "hand": 7,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 60, \"say\": \"Keep that bluff close, partner!\"}",
+   "decision": "RaiseTo(total=60)",
+   "say": "Keep that bluff close, partner!"
+  },
+  {
+   "hand": 7,
+   "street": "Turn",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 60}",
+   "decision": "RaiseTo(total=60)",
+   "say": null
+  },
+  {
+   "hand": 7,
+   "street": "River",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Keep that bluff close, partner!\"}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 8,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Mon dieu, she thinks she\u2019s clever with that card!\"}",
+   "decision": "Fold",
+   "say": "Mon dieu, she thinks she\u2019s clever with that card!"
+  },
+  {
+   "hand": 9,
+   "street": "Pre-draw",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 20}",
+   "decision": "RaiseTo(total=20)",
+   "say": null
+  },
+  {
+   "hand": 9,
+   "street": "Pre-draw",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 20}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 9,
+   "street": "Draw",
+   "speak": true,
+   "raw": "{\"discard\": [2, 3, 4], \"say\": \"Verily, Muscle Molly's got a hefty stash!\"}",
+   "decision": "Discard(indices=[1, 2, 3])",
+   "say": "Verily, Muscle Molly's got a hefty stash!"
+  },
+  {
+   "hand": 9,
+   "street": "Post-draw",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 10,
+   "street": "3rd street",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 13, \"say\": \"My cards are a secret, but they\u2019re practically unbeatable.\"}",
+   "decision": "Call",
+   "say": "My cards are a secret, but they\u2019re practically unbeatable."
+  },
+  {
+   "hand": 10,
+   "street": "3rd street",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 100, \"say\": \"Puff 3, you\u2019re wise to fold.\"}",
+   "decision": "RaiseTo(total=100)",
+   "say": "Puff 3, you\u2019re wise to fold."
+  },
+  {
+   "hand": 10,
+   "street": "3rd street",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 200, \"say\": \"My cards are a secret, but they\u2019re practically unbeatable.\"}",
+   "decision": "RaiseTo(total=200)",
+   "say": null
+  },
+  {
+   "hand": 10,
+   "street": "4th street",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 50, \"say\": \"The pot's a beast, but my cards are a safe bet.\"}",
+   "decision": "RaiseTo(total=50)",
+   "say": "The pot's a beast, but my cards are a safe bet."
+  },
+  {
+   "hand": 10,
+   "street": "5th street",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 100, \"say\": \"My cards are a secret, but they\u2019re practically unbeatable.\"}",
+   "decision": "RaiseTo(total=100)",
+   "say": null
+  },
+  {
+   "hand": 10,
+   "street": "5th street",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 100, \"say\": \"The pot's tight, but I\u2019ve got a feel.\"}",
+   "decision": "Call",
+   "say": "The pot's tight, but I\u2019ve got a feel."
+  },
+  {
+   "hand": 10,
+   "street": "6th street",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 10,
+   "street": "6th street",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 100}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 10,
+   "street": "7th street",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 100, \"say\": \"Your cards are a secret, but I\u2019m feeling generous.\"}",
+   "decision": "RaiseTo(total=100)",
+   "say": "Your cards are a secret, but I\u2019m feeling generous."
+  },
+  {
+   "hand": 11,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Well now that's a straight-up question about chips!\"}",
+   "decision": "Check",
+   "say": "Well now that's a straight-up question about chips!"
+  },
+  {
+   "hand": 11,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 1980, \"say\": \"Well now that's a raise for a straight!\"}",
+   "decision": "RaiseTo(total=1980)",
+   "say": "Well now that's a raise for a straight!"
+  },
+  {
+   "hand": 12,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 13,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 14,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 15,
+   "street": "Pre-draw",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 15,
+   "street": "Draw",
+   "speak": false,
+   "raw": "{\"discard\": [1, 3, 5]}",
+   "decision": "Discard(indices=[0, 2, 4])",
+   "say": null
+  },
+  {
+   "hand": 15,
+   "street": "Post-draw",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Looks like the chips are dancing around my pocket!\"}",
+   "decision": "Check",
+   "say": "Looks like the chips are dancing around my pocket!"
+  },
+  {
+   "hand": 15,
+   "street": "Post-draw",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Your hand's got some flair, but I'm keeping my chips!\"}",
+   "decision": "Fold",
+   "say": "Your hand's got some flair, but I'm keeping my chips!"
+  },
+  {
+   "hand": 16,
+   "street": "3rd street",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 50}",
+   "decision": "RaiseTo(total=50)",
+   "say": null
+  },
+  {
+   "hand": 16,
+   "street": "4th street",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Fine, fine.\"}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 16,
+   "street": "5th street",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 100, \"say\": \"Off with their chips!\"}",
+   "decision": "RaiseTo(total=100)",
+   "say": "Off with their chips!"
+  },
+  {
+   "hand": 16,
+   "street": "6th street",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 100, \"say\": \"Let the cards dance, my liege!\"}",
+   "decision": "RaiseTo(total=100)",
+   "say": "Let the cards dance, my liege!"
+  },
+  {
+   "hand": 16,
+   "street": "7th street",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 100, \"say\": \"May the luck be with you, Your Majesty!\"}",
+   "decision": "RaiseTo(total=100)",
+   "say": "May the luck be with you, Your Majesty!"
+  },
+  {
+   "hand": 16,
+   "street": "7th street",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 100, \"say\": \"Your boldness mirrors my own, Madam.\"}",
+   "decision": "Call",
+   "say": "Your boldness mirrors my own, Madam."
+  },
+  {
+   "hand": 17,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 10}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 17,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 20, \"say\": \"Looks like someone's got a good story here!\"}",
+   "decision": "Call",
+   "say": "Looks like someone's got a good story here!"
+  },
+  {
+   "hand": 17,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 970, \"say\": \"Ah 7c Qh looks like a tricky board!\"}",
+   "decision": "RaiseTo(total=970)",
+   "say": "Ah 7c Qh looks like a tricky board!"
+  },
+  {
+   "hand": 18,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 100}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 18,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 6000}",
+   "decision": "RaiseTo(total=6000)",
+   "say": null
+  },
+  {
+   "hand": 18,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 4000}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 1,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Admiral Gull 3, the sea's not kind to weak hands!\"}",
+   "decision": "Fold",
+   "say": "Admiral Gull 3, the sea's not kind to weak hands!"
+  },
+  {
+   "hand": 2,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 4,
+   "street": "3rd street",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 5,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 100, \"say\": \"Survey says... RAISE!\"}",
+   "decision": "Call",
+   "say": "Survey says... RAISE!"
+  },
+  {
+   "hand": 5,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 240, \"say\": \"Well buckle in, McGee!\"}",
+   "decision": "Call",
+   "say": "Well buckle in, McGee!"
+  },
+  {
+   "hand": 5,
+   "street": "Turn",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 1560, \"say\": \"Well buckle in, McGee! My cards are hiding behind that ace!\"}",
+   "decision": "RaiseTo(total=1560)",
+   "say": "Well buckle in, McGee! My cards are hiding behind that ace!"
+  },
+  {
+   "hand": 5,
+   "street": "River",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 2100, \"say\": \"That river ain't gonna lie!\"}",
+   "decision": "Call",
+   "say": "That river ain't gonna lie!"
+  },
+  {
+   "hand": 6,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 200, \"say\": \"Your king's got guts, but I think he's got a weak hand.\"}",
+   "decision": "Call",
+   "say": "Your king's got guts, but I think he's got a weak hand."
+  },
+  {
+   "hand": 6,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 2000, \"say\": \"My king's got heart, but those cards don't scream 'aces'.\"}",
+   "decision": "RaiseTo(total=2000)",
+   "say": "My king's got heart, but those cards don't scream 'aces'."
+  },
+  {
+   "hand": 6,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 20000, \"say\": \"My hand's a fortress, but the stakes are rising!\"}",
+   "decision": "RaiseTo(total=20000)",
+   "say": "My hand's a fortress, but the stakes are rising!"
+  },
+  {
+   "hand": 6,
+   "street": "Discard",
+   "speak": true,
+   "raw": "{\"discard\": [1], \"say\": \"Your hand's a fortress, but the stakes are rising!\"}",
+   "decision": "Discard(indices=[0])",
+   "say": null
+  },
+  {
+   "hand": 7,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"That call might be the move.\"}",
+   "decision": "Check",
+   "say": "That call might be the move."
+  },
+  {
+   "hand": 7,
+   "street": "Flop",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 7,
+   "street": "Turn",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 7,
+   "street": "River",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 8,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 9,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Salty Meg 3: Too rich for me.\"}",
+   "decision": "Fold",
+   "say": "Salty Meg 3: Too rich for me."
+  },
+  {
+   "hand": 10,
+   "street": "3rd street",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 200, \"say\": \"You\u2019re thinking, what\u2019s the odds? Let\u2019s see that hand!\"}",
+   "decision": "RaiseTo(total=200)",
+   "say": "You\u2019re thinking, what\u2019s the odds? Let\u2019s see that hand!"
+  },
+  {
+   "hand": 11,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 11,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Hey Edna, you better not want your chips back that quick!\"}",
+   "decision": "Fold",
+   "say": "Hey Edna, you better not want your chips back that quick!"
+  },
+  {
+   "hand": 12,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Shaka, your bet looks bold, but I've got better stories.\"}",
+   "decision": "Fold",
+   "say": "Shaka, your bet looks bold, but I've got better stories."
+  },
+  {
+   "hand": 13,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 14,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 15,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Well now, Stormy, you think you can win that bet? Let's see that hand!\"}",
+   "decision": "Check",
+   "say": "Well now, Stormy, you think you can win that bet? Let's see that hand!"
+  },
+  {
+   "hand": 15,
+   "street": "Draw",
+   "speak": false,
+   "raw": "{\"discard\": [1, 2, 4]}",
+   "decision": "Discard(indices=[0, 1, 3])",
+   "say": null
+  },
+  {
+   "hand": 15,
+   "street": "Post-draw",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Well now, Stormy, you think you can win that bet? Let's see that hand!\"}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 16,
+   "street": "4th street",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Well, that's a good look, but I'm not sure I'm ready to bet yet!\"}",
+   "decision": "Check",
+   "say": "Well, that's a good look, but I'm not sure I'm ready to bet yet!"
+  },
+  {
+   "hand": 16,
+   "street": "5th street",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 400, \"say\": \"Well, that's a good look, but I'm not sure I'm ready to bet yet!\"}",
+   "decision": "RaiseTo(total=400)",
+   "say": null
+  },
+  {
+   "hand": 16,
+   "street": "5th street",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 1200, \"say\": \"Well, that's a good look, but I'm not sure I'm ready to bet yet!\"}",
+   "decision": "RaiseTo(total=1200)",
+   "say": null
+  },
+  {
+   "hand": 16,
+   "street": "6th street",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"That's a fold-y moly!\"}",
+   "decision": "Check",
+   "say": "That's a fold-y moly!"
+  },
+  {
+   "hand": 16,
+   "street": "6th street",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 800}",
+   "decision": "RaiseTo(total=800)",
+   "say": null
+  },
+  {
+   "hand": 16,
+   "street": "6th street",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 1600}",
+   "decision": "RaiseTo(total=1600)",
+   "say": null
+  },
+  {
+   "hand": 16,
+   "street": "7th street",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 17,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Time to protect that goldfish!\"}",
+   "decision": "Fold",
+   "say": "Time to protect that goldfish!"
+  },
+  {
+   "hand": 18,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 100, \"say\": \"Hey Captain, that bet looks tempting! You're playing big - don't let it be your last card!\"}",
+   "decision": "Call",
+   "say": "Hey Captain, that bet looks tempting! You're playing big - don't let it be your\u2026"
+  },
+  {
+   "hand": 18,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 200, \"say\": \"Drop and give me twenty chips!\"}",
+   "decision": "Call",
+   "say": "Drop and give me twenty chips!"
+  },
+  {
+   "hand": 18,
+   "street": "Discard",
+   "speak": true,
+   "raw": "{\"discard\": [3], \"say\": \"Those Qc are really trying to steal the spotlight!\"}",
+   "decision": "Discard(indices=[2])",
+   "say": "Those Qc are really trying to steal the spotlight!"
+  },
+  {
+   "hand": 18,
+   "street": "Turn",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 1600, \"say\": \"Yo, that bet's smokin'! You're gonna need that twenty!\"}",
+   "decision": "RaiseTo(total=1600)",
+   "say": "Yo, that bet's smokin'! You're gonna need that twenty!"
+  },
+  {
+   "hand": 18,
+   "street": "River",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 1000}",
+   "decision": "RaiseTo(total=1000)",
+   "say": null
+  },
+  {
+   "hand": 19,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Well, looks like the chips are dancing!\"}",
+   "decision": "Check",
+   "say": "Well, looks like the chips are dancing!"
+  },
+  {
+   "hand": 19,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Well, looks like the chips are dancing!\"}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 19,
+   "street": "Turn",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 20,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"That hand looks like a snoozefest, partner.\"}",
+   "decision": "Fold",
+   "say": "That hand looks like a snoozefest, partner."
+  },
+  {
+   "hand": 21,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"The river's turning, but I'm not sure which way yet.\"}",
+   "decision": "Fold",
+   "say": "The river's turning, but I'm not sure which way yet."
+  },
+  {
+   "hand": 22,
+   "street": "3rd street",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 5, \"say\": \"Let's boogie!\"}",
+   "decision": "Call",
+   "say": "Let's boogie!"
+  },
+  {
+   "hand": 22,
+   "street": "3rd street",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 60, \"say\": \"Let's boogie, Dusty!\"}",
+   "decision": "RaiseTo(total=60)",
+   "say": null
+  },
+  {
+   "hand": 22,
+   "street": "3rd street",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 20}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 22,
+   "street": "4th street",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 20, \"say\": \"Let's boogie!\"}",
+   "decision": "RaiseTo(total=20)",
+   "say": null
+  },
+  {
+   "hand": 22,
+   "street": "4th street",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 40}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 22,
+   "street": "4th street",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 20}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 1,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 2,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Well now, that\u2019s some stacked luck, friend! Let\u2019s see what you got!\"}",
+   "decision": "Fold",
+   "say": "Well now, that\u2019s some stacked luck, friend! Let\u2019s see what you got!"
+  },
+  {
+   "hand": 4,
+   "street": "3rd street",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 100, \"say\": \"Ride the wave, bro.\"}",
+   "decision": "RaiseTo(total=100)",
+   "say": "Ride the wave, bro."
+  },
+  {
+   "hand": 5,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Tom Kitten 3, you're really lucky that I folded!\"}",
+   "decision": "Fold",
+   "say": "Tom Kitten 3, you're really lucky that I folded!"
+  },
+  {
+   "hand": 6,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 7,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Nana Dot 2 said 'Nope'.\"}",
+   "decision": "Check",
+   "say": "Nana Dot 2 said 'Nope'."
+  },
+  {
+   "hand": 7,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 9900, \"say\": \"Man, that flush could save the day!\"}",
+   "decision": "RaiseTo(total=9900)",
+   "say": "Man, that flush could save the day!"
+  },
+  {
+   "hand": 8,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Doppler Dan 2, I'll fold like I'm hiding my rubber ducks.\"}",
+   "decision": "Fold",
+   "say": "Doppler Dan 2, I'll fold like I'm hiding my rubber ducks."
+  },
+  {
+   "hand": 9,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 80, \"say\": \"That looks like a mighty win, partner!\"}",
+   "decision": "Call",
+   "say": "That looks like a mighty win, partner!"
+  },
+  {
+   "hand": 9,
+   "street": "Draw",
+   "speak": true,
+   "raw": "{\"discard\": [2, 3, 5], \"say\": \"Well now that's a trick hand, don't ye think!\"}",
+   "decision": "Discard(indices=[1, 2, 4])",
+   "say": "Well now that's a trick hand, don't ye think!"
+  },
+  {
+   "hand": 9,
+   "street": "Post-draw",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 80}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 10,
+   "street": "3rd street",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 10}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 10,
+   "street": "4th street",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"My ledger says I should be keeping this tight.\"}",
+   "decision": "Check",
+   "say": "My ledger says I should be keeping this tight."
+  },
+  {
+   "hand": 10,
+   "street": "4th street",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"That's not in the budget.\"}",
+   "decision": "Fold",
+   "say": "That's not in the budget."
+  },
+  {
+   "hand": 11,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Oh honey, you're talkin' too much!\"}",
+   "decision": "Check",
+   "say": "Oh honey, you're talkin' too much!"
+  },
+  {
+   "hand": 11,
+   "street": "Flop",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 4950}",
+   "decision": "RaiseTo(total=4950)",
+   "say": null
+  },
+  {
+   "hand": 12,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 25}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 12,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Looks like a storm brewing on that table!\"}",
+   "decision": "Fold",
+   "say": "Looks like a storm brewing on that table!"
+  },
+  {
+   "hand": 13,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 14,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 15,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Calamity Kate 3 calls 60. Keep your cards secret.\"}",
+   "decision": "Fold",
+   "say": "Calamity Kate 3 calls 60. Keep your cards secret."
+  },
+  {
+   "hand": 16,
+   "street": "3rd street",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 17,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 18,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 40, \"say\": \"Arrr, that bet seems a bit temptin, matey!\"}",
+   "decision": "Call",
+   "say": "Arrr, that bet seems a bit temptin, matey!"
+  },
+  {
+   "hand": 18,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 120, \"say\": \"Arrr, that bet seems a bit temptin, matey!\"}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 18,
+   "street": "Flop",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 40}",
+   "decision": "RaiseTo(total=40)",
+   "say": null
+  },
+  {
+   "hand": 18,
+   "street": "Discard",
+   "speak": true,
+   "raw": "{\"discard\": [2], \"say\": \"Arrr, that bet seemed a bit temptin, matey!\"}",
+   "decision": "Discard(indices=[1])",
+   "say": null
+  },
+  {
+   "hand": 18,
+   "street": "Turn",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 40, \"say\": \"Arrr, that bet seems a bit temptin, matey!\"}",
+   "decision": "RaiseTo(total=40)",
+   "say": null
+  },
+  {
+   "hand": 18,
+   "street": "River",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 40, \"say\": \"Arrr, Lady Ophelia 1, better be ready to fold!\"}",
+   "decision": "RaiseTo(total=40)",
+   "say": "Arrr, Lady Ophelia 1, better be ready to fold!"
+  },
+  {
+   "hand": 19,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Well, Glenda, your chips look like they're just dust in the corner!\"}",
+   "decision": "Check",
+   "say": "Well, Glenda, your chips look like they're just dust in the corner!"
+  },
+  {
+   "hand": 19,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Knock knock. You're the new face in the den!\"}",
+   "decision": "Check",
+   "say": "Knock knock. You're the new face in the den!"
+  },
+  {
+   "hand": 19,
+   "street": "Turn",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 3960}",
+   "decision": "RaiseTo(total=3960)",
+   "say": null
+  },
+  {
+   "hand": 20,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Fold like laundry! Those cards are sitting there like a bad habit!\"}",
+   "decision": "Fold",
+   "say": "Fold like laundry! Those cards are sitting there like a bad habit!"
+  },
+  {
+   "hand": 21,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"The cards whisper low, and I'm feeling the tension.\"}",
+   "decision": "Fold",
+   "say": "The cards whisper low, and I'm feeling the tension."
+  },
+  {
+   "hand": 22,
+   "street": "3rd street",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 23,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 4000}",
+   "decision": "RaiseTo(total=4000)",
+   "say": null
+  },
+  {
+   "hand": 24,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"You're lucky, buddy! My chips are stronger than your luck.\"}",
+   "decision": "Fold",
+   "say": "You're lucky, buddy! My chips are stronger than your luck."
+  },
+  {
+   "hand": 25,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 26,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 27,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 100, \"say\": \"Pot looks tight... maybe a fold.\"}",
+   "decision": "Call",
+   "say": "Pot looks tight... maybe a fold."
+  },
+  {
+   "hand": 27,
+   "street": "Pre-draw",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 28,
+   "street": "3rd street",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"You better think you've got it, Skye.\"}",
+   "decision": "Fold",
+   "say": "You better think you've got it, Skye."
+  },
+  {
+   "hand": 29,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Arrr, me hearty, this hand's a fret\u2014better fold!\"}",
+   "decision": "Fold",
+   "say": "Arrr, me hearty, this hand's a fret\u2014better fold!"
+  },
+  {
+   "hand": 30,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 20, \"say\": \"You better believe you can take this!\"}",
+   "decision": "RaiseTo(total=20)",
+   "say": "You better believe you can take this!"
+  },
+  {
+   "hand": 30,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 980, \"say\": \"Puff 3, I'm still flexing!\"}",
+   "decision": "RaiseTo(total=980)",
+   "say": "Puff 3, I'm still flexing!"
+  },
+  {
+   "hand": 31,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Fold like laundry, Mama Marinara.\"}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 32,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 33,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 200, \"say\": \"You're playing smart, partner. Let's see if you can keep it.\"}",
+   "decision": "RaiseTo(total=200)",
+   "say": "You're playing smart, partner. Let's see if you can keep it."
+  },
+  {
+   "hand": 33,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 400, \"say\": \"Checkmate, my strategy's tight.\"}",
+   "decision": "RaiseTo(total=400)",
+   "say": "Checkmate, my strategy's tight."
+  },
+  {
+   "hand": 33,
+   "street": "Draw",
+   "speak": true,
+   "raw": "{\"discard\": [2], \"say\": \"I'm already thinking ahead, mate.\"}",
+   "decision": "Discard(indices=[1])",
+   "say": "I'm already thinking ahead, mate."
+  },
+  {
+   "hand": 1,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Verily, Chip-3000's bold bet feels like a misplaced card!\"}",
+   "decision": "Fold",
+   "say": "Verily, Chip-3000's bold bet feels like a misplaced card!"
+  },
+  {
+   "hand": 2,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 3,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 60, \"say\": \"BEEP BOOP. RAISE PROTOCOL ENGAGED.\"}",
+   "decision": "RaiseTo(total=60)",
+   "say": "BEEP BOOP. RAISE PROTOCOL ENGAGED."
+  },
+  {
+   "hand": 3,
+   "street": "Pre-draw",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 20}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 3,
+   "street": "Draw",
+   "speak": true,
+   "raw": "{\"discard\": [1, 2, 3], \"say\": \"This hand\u2019s got some hidden power... I bet!\"}",
+   "decision": "Discard(indices=[0, 1, 2])",
+   "say": "This hand\u2019s got some hidden power... I bet!"
+  },
+  {
+   "hand": 3,
+   "street": "Post-draw",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"We're hiding in plain sight, buddy.\"}",
+   "decision": "Check",
+   "say": "We're hiding in plain sight, buddy."
+  },
+  {
+   "hand": 3,
+   "street": "Post-draw",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 80, \"say\": \"You're a tough draw, but your bluff's thin.\"}",
+   "decision": "Call",
+   "say": "You're a tough draw, but your bluff's thin."
+  },
+  {
+   "hand": 4,
+   "street": "3rd street",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 50, \"say\": \"Looks like the rain won't come yet!\"}",
+   "decision": "Call",
+   "say": "Looks like the rain won't come yet!"
+  },
+  {
+   "hand": 4,
+   "street": "4th street",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 200}",
+   "decision": "RaiseTo(total=200)",
+   "say": null
+  },
+  {
+   "hand": 4,
+   "street": "5th street",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 400, \"say\": \"Clear skies ahead!\"}",
+   "decision": "RaiseTo(total=400)",
+   "say": "Clear skies ahead!"
+  },
+  {
+   "hand": 4,
+   "street": "6th street",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 400}",
+   "decision": "RaiseTo(total=400)",
+   "say": null
+  },
+  {
+   "hand": 4,
+   "street": "7th street",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 400, \"say\": \"Looks like the rain won't come yet!\"}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 5,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 20, \"say\": \"You're all talk, lady. I've got a better story.\"}",
+   "decision": "RaiseTo(total=20)",
+   "say": "You're all talk, lady. I've got a better story."
+  },
+  {
+   "hand": 5,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 10, \"say\": \"Hmm, those bluffs are fun... but I've got stories too.\"}",
+   "decision": "RaiseTo(total=10)",
+   "say": "Hmm, those bluffs are fun... but I've got stories too."
+  },
+  {
+   "hand": 5,
+   "street": "Turn",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 90}",
+   "decision": "RaiseTo(total=90)",
+   "say": null
+  },
+  {
+   "hand": 5,
+   "street": "Turn",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 620}",
+   "decision": "RaiseTo(total=620)",
+   "say": null
+  },
+  {
+   "hand": 5,
+   "street": "River",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 350, \"say\": \"I've got nothing to lose. Literally.\"}",
+   "decision": "RaiseTo(total=350)",
+   "say": "I've got nothing to lose. Literally."
+  },
+  {
+   "hand": 6,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 50, \"say\": \"Well now, look at that ace-tens! I think I\u2019ve got a story.\"}",
+   "decision": "Call",
+   "say": "Well now, look at that ace-tens! I think I\u2019ve got a story."
+  },
+  {
+   "hand": 6,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 100, \"say\": \"Well now, look at that ace-tens! I think I\u2019ve got a story.\"}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 6,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 500}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 6,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 1600, \"say\": \"Well now, Uncle Gary 3, you sure know how to play!\"}",
+   "decision": "Call",
+   "say": "Well now, Uncle Gary 3, you sure know how to play!"
+  },
+  {
+   "hand": 6,
+   "street": "Discard",
+   "speak": true,
+   "raw": "{\"discard\": [3], \"say\": \"Did I ever tell you about the time I lost to a grandpa?\"}",
+   "decision": "Discard(indices=[2])",
+   "say": "Did I ever tell you about the time I lost to a grandpa?"
+  },
+  {
+   "hand": 6,
+   "street": "Turn",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 2750, \"say\": \"Well now, that pot's got a story to tell!\"}",
+   "decision": "Call",
+   "say": "Well now, that pot's got a story to tell!"
+  },
+  {
+   "hand": 7,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 7,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Your move, Nana Dot 3!\"}",
+   "decision": "Check",
+   "say": "Your move, Nana Dot 3!"
+  },
+  {
+   "hand": 7,
+   "street": "Turn",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Knock knock. I'm the secret card here!\"}",
+   "decision": "Check",
+   "say": "Knock knock. I'm the secret card here!"
+  },
+  {
+   "hand": 7,
+   "street": "River",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 8,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Why did the poker face leave the party? It had too many secrets!\"}",
+   "decision": "Fold",
+   "say": "Why did the poker face leave the party? It had too many secrets!"
+  },
+  {
+   "hand": 9,
+   "street": "Pre-draw",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 20}",
+   "decision": "RaiseTo(total=20)",
+   "say": null
+  },
+  {
+   "hand": 9,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 40, \"say\": \"Hey Stormy, you almost got me!\"}",
+   "decision": "RaiseTo(total=40)",
+   "say": "Hey Stormy, you almost got me!"
+  },
+  {
+   "hand": 9,
+   "street": "Draw",
+   "speak": true,
+   "raw": "{\"discard\": [1, 3, 4], \"say\": \"You're welcome, Stormy! Just keep your eyes on the chips.\"}",
+   "decision": "Discard(indices=[0, 2, 3])",
+   "say": "You're welcome, Stormy! Just keep your eyes on the chips."
+  },
+  {
+   "hand": 9,
+   "street": "Post-draw",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"On my planet this is a winning hand.\"}",
+   "decision": "Check",
+   "say": "On my planet this is a winning hand."
+  },
+  {
+   "hand": 10,
+   "street": "3rd street",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 20, \"say\": \"A true knight would call with pride!\"}",
+   "decision": "Call",
+   "say": "A true knight would call with pride!"
+  },
+  {
+   "hand": 10,
+   "street": "4th street",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"A true knight would check and avoid bluffing too soon!\"}",
+   "decision": "Check",
+   "say": "A true knight would check and avoid bluffing too soon!"
+  },
+  {
+   "hand": 10,
+   "street": "4th street",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 11,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 12,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 800}",
+   "decision": "RaiseTo(total=800)",
+   "say": null
+  },
+  {
+   "hand": 12,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 3200, \"say\": \"Verily, the cards do sing\u2014bet well, dear table!\"}",
+   "decision": "RaiseTo(total=3200)",
+   "say": "Verily, the cards do sing\u2014bet well, dear table!"
+  },
+  {
+   "hand": 12,
+   "street": "Discard",
+   "speak": true,
+   "raw": "{\"discard\": [2], \"say\": \"Verily, the board doth hum a tune, a tricky tune.\"}",
+   "decision": "Discard(indices=[1])",
+   "say": "Verily, the board doth hum a tune, a tricky tune."
+  },
+  {
+   "hand": 13,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Well now, that's a risk I won't repeat.\"}",
+   "decision": "Fold",
+   "say": "Well now, that's a risk I won't repeat."
+  },
+  {
+   "hand": 14,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 15,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 20, \"say\": \"Aye, matey, that's a bold bluff! Let's see those cards!\"}",
+   "decision": "RaiseTo(total=20)",
+   "say": "Aye, matey, that's a bold bluff! Let's see those cards!"
+  },
+  {
+   "hand": 15,
+   "street": "Draw",
+   "speak": false,
+   "raw": "{\"discard\": [3, 4, 5]}",
+   "decision": "Discard(indices=[2, 3, 4])",
+   "say": null
+  },
+  {
+   "hand": 15,
+   "street": "Post-draw",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 20}",
+   "decision": "RaiseTo(total=20)",
+   "say": null
+  },
+  {
+   "hand": 16,
+   "street": "4th street",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Kai Breaker 3, check! I'm feeling spicy!\"}",
+   "decision": "Check",
+   "say": "Kai Breaker 3, check! I'm feeling spicy!"
+  },
+  {
+   "hand": 16,
+   "street": "5th street",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 100, \"say\": \"Check my cards, buddy!\"}",
+   "decision": "RaiseTo(total=100)",
+   "say": "Check my cards, buddy!"
+  },
+  {
+   "hand": 17,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Ah, ye think I got no bluff? I'm just a humble goldfish in a pocket bowl!\"}",
+   "decision": "Fold",
+   "say": "Ah, ye think I got no bluff? I'm just a humble goldfish in a pocket bowl!"
+  },
+  {
+   "hand": 18,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 10, \"say\": \"Well, look at that! You've got a strong story, but I'm feeling a little... colorful.\"}",
+   "decision": "Call",
+   "say": "Well, look at that! You've got a strong story, but I'm feeling a little...\u2026"
+  },
+  {
+   "hand": 18,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 15}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 18,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Well, look at that! You've got a strong story, but I'm feeling a little...... Check!\"}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 1,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Stormy Gale 3 folds. Keep my secret safe!\"}",
+   "decision": "Fold",
+   "say": "Stormy Gale 3 folds. Keep my secret safe!"
+  },
+  {
+   "hand": 2,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Survey says... RAISE!\"}",
+   "decision": "Fold",
+   "say": "Survey says... RAISE!"
+  },
+  {
+   "hand": 3,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Well now that's a solid read \u2014 you've got that high card!\"}",
+   "decision": "Check",
+   "say": "Well now that's a solid read \u2014 you've got that high card!"
+  },
+  {
+   "hand": 3,
+   "street": "Draw",
+   "speak": true,
+   "raw": "{\"discard\": [2, 3, 4], \"say\": \"Looks like we're going for a wild finish!\"}",
+   "decision": "Discard(indices=[1, 2, 3])",
+   "say": "Looks like we're going for a wild finish!"
+  },
+  {
+   "hand": 3,
+   "street": "Post-draw",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 800}",
+   "decision": "RaiseTo(total=800)",
+   "say": null
+  },
+  {
+   "hand": 4,
+   "street": "3rd street",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 40}",
+   "decision": "RaiseTo(total=40)",
+   "say": null
+  },
+  {
+   "hand": 5,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 6,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 40, \"say\": \"My cards whisper secrets, but I'm ready to claim my hand!\"}",
+   "decision": "Call",
+   "say": "My cards whisper secrets, but I'm ready to claim my hand!"
+  },
+  {
+   "hand": 6,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 140, \"say\": \"My cards whisper secrets, but I'm ready to claim my hand!\"}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 6,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 40, \"say\": \"The river flows through the river's bend!\"}",
+   "decision": "RaiseTo(total=40)",
+   "say": "The river flows through the river's bend!"
+  },
+  {
+   "hand": 6,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 840, \"say\": \"The river flows through the bend, but I'm still seeing the future!\"}",
+   "decision": "RaiseTo(total=840)",
+   "say": "The river flows through the bend, but I'm still seeing the future!"
+  },
+  {
+   "hand": 6,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"allin\", \"amount\": 3820, \"say\": \"By my beard!\"}",
+   "decision": "RaiseTo(total=3820)",
+   "say": "By my beard!"
+  },
+  {
+   "hand": 6,
+   "street": "Discard",
+   "speak": true,
+   "raw": "{\"discard\": [3], \"say\": \"My cards are whispering secrets from the future!\"}",
+   "decision": "Discard(indices=[2])",
+   "say": "My cards are whispering secrets from the future!"
+  },
+  {
+   "hand": 7,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 20, \"say\": \"Well that's a fine pot, but I'm tellin' ya, I'm bluffin' hard!\"}",
+   "decision": "RaiseTo(total=20)",
+   "say": "Well that's a fine pot, but I'm tellin' ya, I'm bluffin' hard!"
+  },
+  {
+   "hand": 7,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Well that's a fine pot, but I'm tellin' ya, I'm bluffin' hard!\"}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 7,
+   "street": "Turn",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 10}",
+   "decision": "RaiseTo(total=10)",
+   "say": null
+  },
+  {
+   "hand": 8,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 9,
+   "street": "Pre-draw",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 10,
+   "street": "3rd street",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 11,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 11,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 300, \"say\": \"You're bluffing or you're scared, either way it's a toss!\"}",
+   "decision": "Call",
+   "say": "You're bluffing or you're scared, either way it's a toss!"
+  },
+  {
+   "hand": 11,
+   "street": "Turn",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"You're reading the board like a pro! Keep those chips tight, partner!\"}",
+   "decision": "Check",
+   "say": "You're reading the board like a pro! Keep those chips tight, partner!"
+  },
+  {
+   "hand": 11,
+   "street": "River",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"That's a tight read, buddy!\"}",
+   "decision": "Check",
+   "say": "That's a tight read, buddy!"
+  },
+  {
+   "hand": 12,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 25}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 12,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Hey Zaltar, look who's bluffing! You're gonna have to read my mind.\"}",
+   "decision": "Check",
+   "say": "Hey Zaltar, look who's bluffing! You're gonna have to read my mind."
+  },
+  {
+   "hand": 12,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 750, \"say\": \"Zaltar 2, you're on!\"}",
+   "decision": "RaiseTo(total=750)",
+   "say": "Zaltar 2, you're on!"
+  },
+  {
+   "hand": 12,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 4950, \"say\": \"Well, Zaltar, you sure thought you could hit it! But I'm not ready to play that game.\"}",
+   "decision": "RaiseTo(total=4950)",
+   "say": "Well, Zaltar, you sure thought you could hit it! But I'm not ready to play that\u2026"
+  },
+  {
+   "hand": 12,
+   "street": "Discard",
+   "speak": true,
+   "raw": "{\"discard\": [3], \"say\": \"Well, Zaltar, you sure think you can win!\"}",
+   "decision": "Discard(indices=[2])",
+   "say": "Well, Zaltar, you sure think you can win!"
+  },
+  {
+   "hand": 13,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 14,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 15,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 40, \"say\": \"Well now that's a tellin' move! But I'm not bluffing!\"}",
+   "decision": "Call",
+   "say": "Well now that's a tellin' move! But I'm not bluffing!"
+  },
+  {
+   "hand": 15,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 40, \"say\": \"Well now that's a tellin' move! But I'm not bluffing!\"}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 15,
+   "street": "Draw",
+   "speak": true,
+   "raw": "{\"discard\": [1, 4, 5], \"say\": \"Well now that's a tellin' move! But I'm not bluffing!\"}",
+   "decision": "Discard(indices=[0, 3, 4])",
+   "say": null
+  },
+  {
+   "hand": 15,
+   "street": "Post-draw",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 160, \"say\": \"Well now that's a tellin' move! But I'm not bluffing!\"}",
+   "decision": "RaiseTo(total=160)",
+   "say": null
+  },
+  {
+   "hand": 15,
+   "street": "Post-draw",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 80, \"say\": \"Well now that's a tellin' move! But I'm not bluffing!\"}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 16,
+   "street": "3rd street",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 20}",
+   "decision": "RaiseTo(total=20)",
+   "say": null
+  },
+  {
+   "hand": 17,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Well, look at that\u2014you think you can top it? Just don't blink!\"}",
+   "decision": "Fold",
+   "say": "Well, look at that\u2014you think you can top it? Just don't blink!"
+  },
+  {
+   "hand": 18,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Lucky Larry, your bet's a whisper\u2014your chance's slipping.\"}",
+   "decision": "Fold",
+   "say": "Lucky Larry, your bet's a whisper\u2014your chance's slipping."
+  },
+  {
+   "hand": 19,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Well, look at that weather! Stormy odds here!\"}",
+   "decision": "Check",
+   "say": "Well, look at that weather! Stormy odds here!"
+  },
+  {
+   "hand": 19,
+   "street": "Flop",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 19,
+   "street": "Turn",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 150, \"say\": \"Well, look at that weather! Stormy odds here!\"}",
+   "decision": "RaiseTo(total=150)",
+   "say": null
+  },
+  {
+   "hand": 19,
+   "street": "River",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Well, look at that weather! Stormy odds here!\"}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 20,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 100, \"say\": \"That bet looks mighty tempting, Monty.\"}",
+   "decision": "Call",
+   "say": "That bet looks mighty tempting, Monty."
+  },
+  {
+   "hand": 20,
+   "street": "Flop",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 200}",
+   "decision": "RaiseTo(total=200)",
+   "say": null
+  },
+  {
+   "hand": 20,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 1600, \"say\": \"My cards are a mystery, but they're worth every chip.\"}",
+   "decision": "RaiseTo(total=1600)",
+   "say": "My cards are a mystery, but they're worth every chip."
+  },
+  {
+   "hand": 20,
+   "street": "Turn",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 3800, \"say\": \"The board is a tricky tableau, but I've got the edge.\"}",
+   "decision": "RaiseTo(total=3800)",
+   "say": "The board is a tricky tableau, but I've got the edge."
+  },
+  {
+   "hand": 20,
+   "street": "River",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 11400, \"say\": \"The stakes feel heavy, but my cards are clever.\"}",
+   "decision": "RaiseTo(total=11400)",
+   "say": "The stakes feel heavy, but my cards are clever."
+  },
+  {
+   "hand": 21,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Fold like laundry.\"}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 22,
+   "street": "3rd street",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Well now, kid, looks like I got a tough match to take.\"}",
+   "decision": "Fold",
+   "say": "Well now, kid, looks like I got a tough match to take."
+  },
+  {
+   "hand": 23,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 50}",
+   "decision": "RaiseTo(total=50)",
+   "say": null
+  },
+  {
+   "hand": 1,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"What a play!\"}",
+   "decision": "Fold",
+   "say": "What a play!"
+  },
+  {
+   "hand": 2,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"You're out there trying to bluff, but a king's count is always better.\"}",
+   "decision": "Fold",
+   "say": "You're out there trying to bluff, but a king's count is always better."
+  },
+  {
+   "hand": 3,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 200, \"say\": \"Time to turn that hand around, bro!\"}",
+   "decision": "RaiseTo(total=200)",
+   "say": "Time to turn that hand around, bro!"
+  },
+  {
+   "hand": 3,
+   "street": "Draw",
+   "speak": true,
+   "raw": "{\"discard\": [1, 3, 4], \"say\": \"Time to turn that hand around, bro!\"}",
+   "decision": "Discard(indices=[0, 2, 3])",
+   "say": null
+  },
+  {
+   "hand": 3,
+   "street": "Post-draw",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 200}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 3,
+   "street": "Post-draw",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 400}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 3,
+   "street": "Post-draw",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 200, \"say\": \"Feel the burn!\"}",
+   "decision": "Call",
+   "say": "Feel the burn!"
+  },
+  {
+   "hand": 4,
+   "street": "3rd street",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 3, \"say\": \"Looks like the button's got a plan tonight!\"}",
+   "decision": "Call",
+   "say": "Looks like the button's got a plan tonight!"
+  },
+  {
+   "hand": 4,
+   "street": "4th street",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 10, \"say\": \"Looks like the button's got a plan tonight!\"}",
+   "decision": "RaiseTo(total=10)",
+   "say": null
+  },
+  {
+   "hand": 4,
+   "street": "5th street",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 20}",
+   "decision": "RaiseTo(total=20)",
+   "say": null
+  },
+  {
+   "hand": 4,
+   "street": "6th street",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 20, \"say\": \"Dusty Boots 3, check!\"}",
+   "decision": "RaiseTo(total=20)",
+   "say": "Dusty Boots 3, check!"
+  },
+  {
+   "hand": 4,
+   "street": "7th street",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 5,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 400, \"say\": \"Fools! My ace and king give me a high chance to strike.\"}",
+   "decision": "RaiseTo(total=400)",
+   "say": "Fools! My ace and king give me a high chance to strike."
+  },
+  {
+   "hand": 5,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 1600, \"say\": \"Tease Cookie Crumble 2 about that bet. Your chips are tempting, but I'm holding the edge.\"}",
+   "decision": "RaiseTo(total=1600)",
+   "say": "Tease Cookie Crumble 2 about that bet. Your chips are tempting, but I'm holding\u2026"
+  },
+  {
+   "hand": 5,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 10000, \"say\": \"Your chips are tempting, but I'm keeping my wits about me!\"}",
+   "decision": "RaiseTo(total=10000)",
+   "say": "Your chips are tempting, but I'm keeping my wits about me!"
+  },
+  {
+   "hand": 5,
+   "street": "Flop",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 5,
+   "street": "Turn",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 10000, \"say\": \"The dragon is rising, but I've got a better hand.\"}",
+   "decision": "Call",
+   "say": "The dragon is rising, but I've got a better hand."
+  },
+  {
+   "hand": 6,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 100, \"say\": \"Well? These chips are spicy!\"}",
+   "decision": "Call",
+   "say": "Well? These chips are spicy!"
+  },
+  {
+   "hand": 6,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 1500, \"say\": \"Well? These chips are spicy!\"}",
+   "decision": "RaiseTo(total=1500)",
+   "say": null
+  },
+  {
+   "hand": 7,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 7,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"You're holding a strong flush, Pip! But watch your chips.\"}",
+   "decision": "Check",
+   "say": "You're holding a strong flush, Pip! But watch your chips."
+  },
+  {
+   "hand": 7,
+   "street": "Turn",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 200, \"say\": \"BEEP BOOP. RAISE PROTOCOL ENGAGED.\"}",
+   "decision": "RaiseTo(total=200)",
+   "say": "BEEP BOOP. RAISE PROTOCOL ENGAGED."
+  },
+  {
+   "hand": 8,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Well ol' man, you think that bet's tight? Let's see that hand!\"}",
+   "decision": "Fold",
+   "say": "Well ol' man, you think that bet's tight? Let's see that hand!"
+  },
+  {
+   "hand": 9,
+   "street": "Pre-draw",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 10,
+   "street": "3rd street",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 5}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 10,
+   "street": "4th street",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Dusty, you're bluffing again!\"}",
+   "decision": "Check",
+   "say": "Dusty, you're bluffing again!"
+  },
+  {
+   "hand": 10,
+   "street": "5th street",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Sam, your luck's as bad as a dodgy mothership!\"}",
+   "decision": "Check",
+   "say": "Sam, your luck's as bad as a dodgy mothership!"
+  },
+  {
+   "hand": 10,
+   "street": "6th street",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 40, \"say\": \"Dusty, you're bluffing again! Commander Blorb's got a better hand than your mothership!\"}",
+   "decision": "RaiseTo(total=40)",
+   "say": "Dusty, you're bluffing again! Commander Blorb's got a better hand than your\u2026"
+  },
+  {
+   "hand": 11,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Hey Ember, you\u2019re thinkin\u2019 too much!\"}",
+   "decision": "Check",
+   "say": "Hey Ember, you\u2019re thinkin\u2019 too much!"
+  },
+  {
+   "hand": 11,
+   "street": "Flop",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 4950}",
+   "decision": "RaiseTo(total=4950)",
+   "say": null
+  },
+  {
+   "hand": 12,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 25}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 12,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Come on down!\"}",
+   "decision": "Check",
+   "say": "Come on down!"
+  },
+  {
+   "hand": 12,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"That board's got some real drama, my friend!\"}",
+   "decision": "Fold",
+   "say": "That board's got some real drama, my friend!"
+  },
+  {
+   "hand": 13,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Stay sharp, the chips are tight.\"}",
+   "decision": "Fold",
+   "say": "Stay sharp, the chips are tight."
+  },
+  {
+   "hand": 14,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Well, dear, you might wanna think twice about that bet!\"}",
+   "decision": "Fold",
+   "say": "Well, dear, you might wanna think twice about that bet!"
+  },
+  {
+   "hand": 15,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Kai Breaker 3 folds. My cards are safe.\"}",
+   "decision": "Fold",
+   "say": "Kai Breaker 3 folds. My cards are safe."
+  },
+  {
+   "hand": 16,
+   "street": "4th street",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Run along, cards!\"}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 17,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Dame Thespia 3 folds. Keep your cards secret.\"}",
+   "decision": "Fold",
+   "say": "Dame Thespia 3 folds. Keep your cards secret."
+  },
+  {
+   "hand": 18,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 200, \"say\": \"Survey says... RAISE!\"}",
+   "decision": "RaiseTo(total=200)",
+   "say": "Survey says... RAISE!"
+  },
+  {
+   "hand": 18,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 400, \"say\": \"The board's got a killer three of a kind, and I'm ready to show my strength!\"}",
+   "decision": "RaiseTo(total=400)",
+   "say": "The board's got a killer three of a kind, and I'm ready to show my strength!"
+  },
+  {
+   "hand": 18,
+   "street": "Discard",
+   "speak": false,
+   "raw": "{\"discard\": [1]}",
+   "decision": "Discard(indices=[0])",
+   "say": null
+  },
+  {
+   "hand": 18,
+   "street": "Turn",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 1000}",
+   "decision": "RaiseTo(total=1000)",
+   "say": null
+  },
+  {
+   "hand": 18,
+   "street": "River",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 6600, \"say\": \"Sunny Skye 3 is serious! This is a killer!\"}",
+   "decision": "RaiseTo(total=6600)",
+   "say": "Sunny Skye 3 is serious! This is a killer!"
+  },
+  {
+   "hand": 18,
+   "street": "River",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 1800}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 19,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 19,
+   "street": "Flop",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 19,
+   "street": "Turn",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"This hand\u2019s got some heart.\"}",
+   "decision": "Check",
+   "say": "This hand\u2019s got some heart."
+  },
+  {
+   "hand": 19,
+   "street": "River",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Well, I\u2019ve got a story to tell.\"}",
+   "decision": "Check",
+   "say": "Well, I\u2019ve got a story to tell."
+  },
+  {
+   "hand": 20,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 21,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 200, \"say\": \"Why did the poker face cross the stage? To avoid the bluffs!\"}",
+   "decision": "RaiseTo(total=200)",
+   "say": "Why did the poker face cross the stage? To avoid the bluffs!"
+  },
+  {
+   "hand": 1,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Misty Morning 3, you're playing safe with that bet!\"}",
+   "decision": "Fold",
+   "say": "Misty Morning 3, you're playing safe with that bet!"
+  },
+  {
+   "hand": 2,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 3,
+   "street": "Pre-draw",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 40}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 3,
+   "street": "Draw",
+   "speak": false,
+   "raw": "{\"discard\": [2, 3, 4]}",
+   "decision": "Discard(indices=[1, 2, 3])",
+   "say": null
+  },
+  {
+   "hand": 3,
+   "street": "Post-draw",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 80, \"say\": \"Meow~ I\u2019m just here to keep the chips spinning!\"}",
+   "decision": "Call",
+   "say": "Meow~ I\u2019m just here to keep the chips spinning!"
+  },
+  {
+   "hand": 4,
+   "street": "3rd street",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 3, \"say\": \"I'm bluffing hard! Watch me!\"}",
+   "decision": "Call",
+   "say": "I'm bluffing hard! Watch me!"
+  },
+  {
+   "hand": 4,
+   "street": "4th street",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Nope.\"}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 4,
+   "street": "5th street",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Checking... looks solid.\"}",
+   "decision": "Check",
+   "say": "Checking... looks solid."
+  },
+  {
+   "hand": 4,
+   "street": "6th street",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 4,
+   "street": "7th street",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 20, \"say\": \"BEEP BOOP. RAISE PROTOCOL ENGAGED.\"}",
+   "decision": "RaiseTo(total=20)",
+   "say": "BEEP BOOP. RAISE PROTOCOL ENGAGED."
+  },
+  {
+   "hand": 5,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Well now, that's a tight one... let's see what the chips are worth.\"}",
+   "decision": "Fold",
+   "say": "Well now, that's a tight one... let's see what the chips are worth."
+  },
+  {
+   "hand": 6,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 50}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 6,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 125, \"say\": \"Well now that's a straight-up tale!\"}",
+   "decision": "Call",
+   "say": "Well now that's a straight-up tale!"
+  },
+  {
+   "hand": 6,
+   "street": "Flop",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 4825}",
+   "decision": "RaiseTo(total=4825)",
+   "say": null
+  },
+  {
+   "hand": 7,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 7,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Hope you play safe, buddy.\"}",
+   "decision": "Check",
+   "say": "Hope you play safe, buddy."
+  },
+  {
+   "hand": 7,
+   "street": "Turn",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 7,
+   "street": "River",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 8,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 9,
+   "street": "Pre-draw",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 10,
+   "street": "3rd street",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 13}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 10,
+   "street": "4th street",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Merlin the Mild 1: 'I'll sit this one out.'\"}",
+   "decision": "Check",
+   "say": "Merlin the Mild 1: 'I'll sit this one out.'"
+  },
+  {
+   "hand": 10,
+   "street": "5th street",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Shaken, not shuffled.\"}",
+   "decision": "Check",
+   "say": "Shaken, not shuffled."
+  },
+  {
+   "hand": 10,
+   "street": "6th street",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Time to see if you're bluffing or bluffless.\"}",
+   "decision": "Check",
+   "say": "Time to see if you're bluffing or bluffless."
+  },
+  {
+   "hand": 10,
+   "street": "7th street",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Let's see if you're hiding.\"}",
+   "decision": "Check",
+   "say": "Let's see if you're hiding."
+  },
+  {
+   "hand": 12,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 500, \"say\": \"The stakes are tempting, but my cards are still whispering.\"}",
+   "decision": "RaiseTo(total=500)",
+   "say": "The stakes are tempting, but my cards are still whispering."
+  },
+  {
+   "hand": 12,
+   "street": "Flop",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 1000}",
+   "decision": "RaiseTo(total=1000)",
+   "say": null
+  },
+  {
+   "hand": 12,
+   "street": "Discard",
+   "speak": true,
+   "raw": "{\"discard\": [2], \"say\": \"My hand's got some grit, but the stakes are too high for a whisper.\"}",
+   "decision": "Discard(indices=[1])",
+   "say": "My hand's got some grit, but the stakes are too high for a whisper."
+  },
+  {
+   "hand": 12,
+   "street": "Turn",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 100, \"say\": \"The stakes are tempting, but my cards are still whispering.\"}",
+   "decision": "RaiseTo(total=100)",
+   "say": null
+  },
+  {
+   "hand": 12,
+   "street": "Turn",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 5400}",
+   "decision": "RaiseTo(total=5400)",
+   "say": null
+  },
+  {
+   "hand": 12,
+   "street": "River",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 1000, \"say\": \"The stakes are tempting, but my cards are still whispering.\"}",
+   "decision": "RaiseTo(total=1000)",
+   "say": null
+  },
+  {
+   "hand": 12,
+   "street": "River",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 2100, \"say\": \"The pot's a beast tonight, but my cards still whisper.\"}",
+   "decision": "Call",
+   "say": "The pot's a beast tonight, but my cards still whisper."
+  },
+  {
+   "hand": 13,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 14,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Hey, Calamity, you bet 20? That's a steal!\"}",
+   "decision": "Fold",
+   "say": "Hey, Calamity, you bet 20? That's a steal!"
+  },
+  {
+   "hand": 15,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 100, \"say\": \"This hand has the potential. Don't fold!\"}",
+   "decision": "RaiseTo(total=100)",
+   "say": "This hand has the potential. Don't fold!"
+  },
+  {
+   "hand": 15,
+   "street": "Draw",
+   "speak": false,
+   "raw": "{\"discard\": [1]}",
+   "decision": "Discard(indices=[0])",
+   "say": null
+  },
+  {
+   "hand": 15,
+   "street": "Post-draw",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Shuffle up my luck.\"}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 15,
+   "street": "Post-draw",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 200}",
+   "decision": "RaiseTo(total=200)",
+   "say": null
+  },
+  {
+   "hand": 15,
+   "street": "Post-draw",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 400}",
+   "decision": "RaiseTo(total=400)",
+   "say": null
+  },
+  {
+   "hand": 16,
+   "street": "4th street",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 200, \"say\": \"Fold like laundry!\"}",
+   "decision": "RaiseTo(total=200)",
+   "say": null
+  },
+  {
+   "hand": 16,
+   "street": "5th street",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"And there I go - just like when I first met my coach at the pro shop!\"}",
+   "decision": "Check",
+   "say": "And there I go - just like when I first met my coach at the pro shop!"
+  },
+  {
+   "hand": 16,
+   "street": "6th street",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 400}",
+   "decision": "RaiseTo(total=400)",
+   "say": null
+  },
+  {
+   "hand": 16,
+   "street": "7th street",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 16,
+   "street": "7th street",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 400, \"say\": \"Admiral, you're just like a kid with a chip in his pocket!\"}",
+   "decision": "Call",
+   "say": "Admiral, you're just like a kid with a chip in his pocket!"
+  },
+  {
+   "hand": 17,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Meh, these chips feel like a scratch on the paw.\"}",
+   "decision": "Fold",
+   "say": "Meh, these chips feel like a scratch on the paw."
+  },
+  {
+   "hand": 18,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Man, that look in there's got more stories than a TV show!\"}",
+   "decision": "Fold",
+   "say": "Man, that look in there's got more stories than a TV show!"
+  },
+  {
+   "hand": 19,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Meow~ Looks like a purr-fect decision!\"}",
+   "decision": "Check",
+   "say": "Meow~ Looks like a purr-fect decision!"
+  },
+  {
+   "hand": 19,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 4950, \"say\": \"Meow~ Looks like a purr-fect chance to bluff!\"}",
+   "decision": "RaiseTo(total=4950)",
+   "say": null
+  },
+  {
+   "hand": 20,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Well, look at those chips... that's a small expense.\"}",
+   "decision": "Fold",
+   "say": "Well, look at those chips... that's a small expense."
+  },
+  {
+   "hand": 21,
+   "street": "Pre-draw",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 80}",
+   "decision": "RaiseTo(total=80)",
+   "say": null
+  },
+  {
+   "hand": 1,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"That one's a sleeper\u2014keep it tight!\"}",
+   "decision": "Fold",
+   "say": "That one's a sleeper\u2014keep it tight!"
+  },
+  {
+   "hand": 2,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Well now, look at those weak hands! I bet a strong one.\"}",
+   "decision": "Fold",
+   "say": "Well now, look at those weak hands! I bet a strong one."
+  },
+  {
+   "hand": 3,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 600, \"say\": \"Disco vibes, let's keep the energy high!\"}",
+   "decision": "RaiseTo(total=600)",
+   "say": "Disco vibes, let's keep the energy high!"
+  },
+  {
+   "hand": 3,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 200, \"say\": \"You think you can take me? I'm ready to blow!\"}",
+   "decision": "Call",
+   "say": "You think you can take me? I'm ready to blow!"
+  },
+  {
+   "hand": 3,
+   "street": "Draw",
+   "speak": false,
+   "raw": "{\"discard\": [1, 2, 3]}",
+   "decision": "Discard(indices=[0, 1, 2])",
+   "say": null
+  },
+  {
+   "hand": 3,
+   "street": "Post-draw",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 4,
+   "street": "3rd street",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 30, \"say\": \"Man, that button's screaming!\"}",
+   "decision": "Call",
+   "say": "Man, that button's screaming!"
+  },
+  {
+   "hand": 4,
+   "street": "4th street",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Man, that button's screaming!\"}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 4,
+   "street": "5th street",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 4,
+   "street": "6th street",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Man, that button's screaming!\"}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 4,
+   "street": "7th street",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Check, man.\"}",
+   "decision": "Check",
+   "say": "Check, man."
+  },
+  {
+   "hand": 5,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 120}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 5,
+   "street": "Flop",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 340}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 5,
+   "street": "Turn",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 1440}",
+   "decision": "RaiseTo(total=1440)",
+   "say": null
+  },
+  {
+   "hand": 5,
+   "street": "River",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 1440, \"say\": \"My chips are warm, but my confidence is hotter!\"}",
+   "decision": "RaiseTo(total=1440)",
+   "say": "My chips are warm, but my confidence is hotter!"
+  },
+  {
+   "hand": 6,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 20}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 6,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"The stakes are a tempting dance, but I hold my cards close.\"}",
+   "decision": "Fold",
+   "say": "The stakes are a tempting dance, but I hold my cards close."
+  },
+  {
+   "hand": 7,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 7,
+   "street": "Flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Boo! That chip pile's heavier than a ghost's sigh.\"}",
+   "decision": "Check",
+   "say": "Boo! That chip pile's heavier than a ghost's sigh."
+  },
+  {
+   "hand": 7,
+   "street": "Turn",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 4950, \"say\": \"Boo! You're lucky I'm here!\"}",
+   "decision": "RaiseTo(total=4950)",
+   "say": "Boo! You're lucky I'm here!"
+  },
+  {
+   "hand": 8,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 9,
+   "street": "Pre-draw",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 40}",
+   "decision": "RaiseTo(total=40)",
+   "say": null
+  },
+  {
+   "hand": 9,
+   "street": "Pre-draw",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 80}",
+   "decision": "RaiseTo(total=80)",
+   "say": null
+  },
+  {
+   "hand": 9,
+   "street": "Draw",
+   "speak": true,
+   "raw": "{\"discard\": [3, 4], \"say\": \"Time to make some noise, kid!\"}",
+   "decision": "Discard(indices=[2, 3])",
+   "say": "Time to make some noise, kid!"
+  },
+  {
+   "hand": 9,
+   "street": "Post-draw",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 120}",
+   "decision": "RaiseTo(total=120)",
+   "say": null
+  },
+  {
+   "hand": 9,
+   "street": "Post-draw",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 40, \"say\": \"Pot's heavy, kid! Let's sink this!\"}",
+   "decision": "Call",
+   "say": "Pot's heavy, kid! Let's sink this!"
+  },
+  {
+   "hand": 10,
+   "street": "3rd street",
+   "speak": false,
+   "raw": "{\"action\": \"call\", \"amount\": 5}",
+   "decision": "Call",
+   "say": null
+  },
+  {
+   "hand": 10,
+   "street": "4th street",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Man, that's a tight line!\"}",
+   "decision": "Check",
+   "say": "Man, that's a tight line!"
+  },
+  {
+   "hand": 10,
+   "street": "5th street",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 10,
+   "street": "6th street",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 40, \"say\": \"Man, that's a tight line!\"}",
+   "decision": "RaiseTo(total=40)",
+   "say": null
+  },
+  {
+   "hand": 11,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"raise\", \"amount\": 500, \"say\": \"Well now that's a big call, partner!\"}",
+   "decision": "RaiseTo(total=500)",
+   "say": "Well now that's a big call, partner!"
+  },
+  {
+   "hand": 11,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 2600}",
+   "decision": "RaiseTo(total=2600)",
+   "say": null
+  },
+  {
+   "hand": 11,
+   "street": "Flop",
+   "speak": false,
+   "raw": "{\"action\": \"check\", \"amount\": 0}",
+   "decision": "Check",
+   "say": null
+  },
+  {
+   "hand": 11,
+   "street": "Flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 12,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 13,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Keep it tight, partner.\"}",
+   "decision": "Fold",
+   "say": "Keep it tight, partner."
+  },
+  {
+   "hand": 14,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Well now, look at that rain washin' off the streets. You're in a tough spot, but keep your eyes on the prize.\"}",
+   "decision": "Fold",
+   "say": "Well now, look at that rain washin' off the streets. You're in a tough spot\u2026"
+  },
+  {
+   "hand": 15,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 20, \"say\": \"Spicy, buddy!\"}",
+   "decision": "Call",
+   "say": "Spicy, buddy!"
+  },
+  {
+   "hand": 15,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 40, \"say\": \"You're just a wiggly kitten with a chip strategy!\"}",
+   "decision": "Call",
+   "say": "You're just a wiggly kitten with a chip strategy!"
+  },
+  {
+   "hand": 15,
+   "street": "Draw",
+   "speak": false,
+   "raw": "{\"discard\": [3, 4, 5]}",
+   "decision": "Discard(indices=[2, 3, 4])",
+   "say": null
+  },
+  {
+   "hand": 15,
+   "street": "Post-draw",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 16,
+   "street": "3rd street",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Well, look at those cards - they're hiding something.\"}",
+   "decision": "Fold",
+   "say": "Well, look at those cards - they're hiding something."
+  },
+  {
+   "hand": 17,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"call\", \"amount\": 50, \"say\": \"Your hand's sturdy, but I'm playing to make you think!\"}",
+   "decision": "Call",
+   "say": "Your hand's sturdy, but I'm playing to make you think!"
+  },
+  {
+   "hand": 17,
+   "street": "Flop",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 4950}",
+   "decision": "RaiseTo(total=4950)",
+   "say": null
+  },
+  {
+   "hand": 18,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"raise\", \"amount\": 800}",
+   "decision": "RaiseTo(total=800)",
+   "say": null
+  },
+  {
+   "hand": 19,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Well now that's a fine pair, but I ain't lettin' no weak hands stand a chance!\"}",
+   "decision": "Fold",
+   "say": "Well now that's a fine pair, but I ain't lettin' no weak hands stand a chance!"
+  },
+  {
+   "hand": 20,
+   "street": "Pre-flop",
+   "speak": false,
+   "raw": "{\"action\": \"fold\", \"amount\": 0}",
+   "decision": "Fold",
+   "say": null
+  },
+  {
+   "hand": 21,
+   "street": "Pre-draw",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"The Phantom 3 folds. Better luck next time, kiddo.\"}",
+   "decision": "Fold",
+   "say": "The Phantom 3 folds. Better luck next time, kiddo."
+  },
+  {
+   "hand": 22,
+   "street": "3rd street",
+   "speak": true,
+   "raw": "{\"action\": \"fold\", \"amount\": 0, \"say\": \"Off with their chips!\"}",
+   "decision": "Fold",
+   "say": "Off with their chips!"
+  },
+  {
+   "hand": 23,
+   "street": "Pre-flop",
+   "speak": true,
+   "raw": "{\"action\": \"check\", \"amount\": 0, \"say\": \"Heh, I'm playin' it up!\"}",
+   "decision": "Check",
+   "say": "Heh, I'm playin' it up!"
+  }
+ ]
+}

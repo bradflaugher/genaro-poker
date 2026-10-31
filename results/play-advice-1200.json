@@ -1,0 +1,18 @@
+{
+ "summary": {
+  "name": "advice-1200",
+  "mode": "advice",
+  "hands": 1200,
+  "bb_per_100": -49.9,
+  "bb_per_100_stderr": 78.7,
+  "model_decisions": 0,
+  "fallback_rate": 0.0,
+  "ms_per_decision_parallel": 0,
+  "gen_tokens_per_decision": 0.0,
+  "leak_rate": 0.0,
+  "repeat_rate": 0.0,
+  "over_12_words": 0.0,
+  "words_per_line": 0.0
+ },
+ "sample_log": []
+}

@@ -218,3 +218,13 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# genaro-poker: generated, large, or published elsewhere (weights + dataset live on Hugging Face)
+data/
+runs/
+out/
+hf/
+logs-*.log
+bridge/bridge.jar
+bridge/pokersi.rev
+memguard.log
