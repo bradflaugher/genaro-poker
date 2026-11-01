@@ -40,6 +40,7 @@ PokerSI runs it (the app's prompt, grammar and sampling). Full tables, including
 | Qwen3 1.7B (base) | 1282 MB | 39.7% | 8.2 | 17.9% | 49.7% | 8.2% | 48.3% | — |
 | LFM2.5 1.2B (PokerSI's previous default) | 731 MB | 55.8% | 12.6 | 2.6% | 29.8% | 8.5% | 9.4% | −80 ± 80 |
 | **Genaro Poker 0.6B** | **397 MB** | **78.5%** | 9.1 | **0.0%** | **0.3%** | **0.0%** | **0.0%** | −84 ± 52 |
+| **Genaro Poker 1.7B** | 1107 MB | **80.2%** | **7.5** | 0.3% | 0.9% | 0.6% | **0.0%** | **−45 ± 64** |
 
 *Agreement*: same move as the majority of 9 House Bot teachers. *Blunder*: folding with equity
 ≥ 10 points above the pot odds, or calling/raising with equity ≥ 15 points below them. *Leak*:
@@ -47,11 +48,12 @@ a line PokerSI's own `HandBlur` would censor; *card talk*: any card or hand word
 *Live play*: 1,200 hands in one seat against three House Bots (which win +80 ± 66 in the same
 seat), identical deals for every model.
 
-The short version: Genaro plays about as well as the previous default in live hands (the
-difference is well inside the error bars), at half the download, while its table talk is
-clean: no leaks, no rambling, half the repeats in live play. The biggest single win was the
+The short version: Genaro 0.6B plays about as well as the previous default in live hands
+(well inside the error bars) at half the download, and its table talk is clean: no leaks, no
+rambling, half the repeats. Genaro 1.7B is the strongest model on every decision metric and
+the best LLM in live play, for phones that can afford 1.1 GB. The biggest single win was the
 labels: training on one noisy teacher sample (v1) lost 184 bb/100 live; the 9-teacher
-majority (v2) cut that to 84.
+majority cut that to 84. For 1.7B, a second epoch mattered (68% → 80% agreement).
 
 ## How it's built
 
@@ -76,7 +78,7 @@ PokerSI (Kotlin)  ──bridge──▶  self-play: every decision's exact promp
    at all, PokerSI's `TableTalk` repeat rules, and PokerSI's own `HandBlur`. Quiet turns carry
    no line, exactly like the app's quiet-turn grammar.
 4. **Training:** full fine-tune in bf16, loss on the reply only, thinking disabled in the chat
-   template (as PokerSI renders it). About 70 minutes for 0.6B and 85 for 1.7B on one
+   template (as PokerSI renders it). About 70 minutes for 0.6B and 2 hours for 1.7B on one
    [RTX Spark N1X laptop](https://github.com/bradflaugher/train-me).
 5. **Export:** `convert_hf_to_gguf.py` + `llama-quantize` to Q4_K_M with Genaro metadata and
    the chat template embedded (PokerSI reads the template from the GGUF).

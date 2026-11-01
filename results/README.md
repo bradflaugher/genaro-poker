@@ -13,6 +13,7 @@ Every model runs through llama.cpp exactly as PokerSI runs it: the app's prompt,
 | Genaro 1.7B v1 (single-sample labels) | 1107 MB | 68.2% | 9.4 | 8.0 | 12.1 | 0.0% | 1.1% | 0.3% | 0.0% | 21.9 |
 | Genaro 1.7B v2 (majority labels, 1 epoch) | 1107 MB | 68.3% | 9.4 | 8.0 | 12.7 | 0.0% | 1.7% | 0.3% | 0.0% | 21.8 |
 | **Genaro 0.6B** (majority labels, 2 epochs) | 397 MB | 78.5% | 9.1 | 6.7 | 13.5 | 0.0% | 0.3% | 0.0% | 0.0% | 21.7 |
+| **Genaro 1.7B** (majority labels, 2 epochs) | 1107 MB | 80.2% | 7.5 | 5.7 | 9.2 | 0.3% | 0.9% | 0.6% | 0.0% | 21.6 |
 
 ## Live play (1,200 hands, identical deals for every row)
 
@@ -25,3 +26,4 @@ The model plays one seat of a 4-handed table against three House Bots through Po
 | LFM2.5 1.2B | -80 ± 80 | 0.00% | 2.1% | 17.4% | 8.0 | 23.7 |
 | Genaro 0.6B v1 | -184 ± 53 | 0.07% | 0.0% | 11.4% | 6.8 | 22.0 |
 | **Genaro 0.6B** | -84 ± 52 | 0.18% | 0.0% | 8.7% | 6.9 | 22.0 |
+| **Genaro 1.7B** | -45 ± 64 | 0.00% | 0.0% | 6.8% | 6.8 | 22.1 |

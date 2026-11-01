@@ -30,11 +30,11 @@ votes:                # 9-teacher majority labels for the training + eval rows (
 sft-data:
 	$(PY) -m genaro.build --model Qwen/Qwen3-0.6B --extra-quiet 12000 --out sft-qwen3-maj
 
-train:                # full fine-tune (~70 min for 0.6B, ~85 min for 1.7B on the N1X)
+train:                # full fine-tune (~70 min for 0.6B, ~2 h for 1.7B on the N1X)
 	$(PY) -m genaro.sft configs/genaro-$(SIZE).yaml
 
 gguf:                 # Q4_K_M with Genaro metadata (needs llama.cpp built in ~/Work/llama.cpp)
-	$(PY) -m genaro.export runs/genaro-$(SIZE)-v2/final out/genaro-poker-$(SIZE)-Q4_K_M.gguf --size $(shell echo $(SIZE) | tr a-z A-Z)
+	$(PY) -m genaro.export runs/genaro-$(SIZE)/final out/genaro-poker-$(SIZE)-Q4_K_M.gguf --size $(shell echo $(SIZE) | tr a-z A-Z)
 
 eval:                 # 600 held-out decisions through llama.cpp with the app's grammar + sampling
 	$(PY) -m genaro.evaluate out/genaro-poker-$(SIZE)-Q4_K_M.gguf --name genaro-poker-$(SIZE)

@@ -28,7 +28,7 @@ sibling of [Genaro Poker 0.6B](https://huggingface.co/predbrad/Genaro-poker), fo
 
 Given PokerSI's prompt for one decision (a persona, the rules, what the seat can see, the
 legal moves), Genaro answers with one JSON object: a sound, legal move and, on talk turns, a
-short line in the character's voice that never gives its cards away.
+short line in the character's voice, trained not to give its cards away.
 
 ```json
 {"action": "call", "amount": 55, "say": "The pot looks like it's brewing a little sunshine."}
@@ -92,8 +92,8 @@ text = tok.apply_chat_template(messages, tokenize=False, add_generation_prompt=T
 - **Table talk:** written by Gemma 4 E4B for the chosen move, kept only if it passes the
   grammar's rules, 2-12 words, no card or hand vocabulary, PokerSI's repeat rules and
   PokerSI's `HandBlur`. Quiet turns have no line, like the app's quiet-turn grammar.
-- **Recipe:** 22,941 conversations, full fine-tune, bf16, 1 epoch, lr 2e-5 cosine, effective
-  batch 64, loss on the reply only. ~80 min on one NVIDIA RTX Spark N1X laptop.
+- **Recipe:** 22,941 conversations, full fine-tune, bf16, 2 epochs, lr 3e-5 cosine, effective
+  batch 64, loss on the reply only. ~2 h on one NVIDIA RTX Spark N1X laptop.
   See `training_config.yaml`.
 
 ## Limits

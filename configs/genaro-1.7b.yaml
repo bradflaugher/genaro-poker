@@ -1,5 +1,5 @@
 # Genaro 1.7B: full fine-tune of Qwen3-1.7B (Apache 2.0) on PokerSI's exact prompts.
-# ~1.3 GB as Q4_K_M: for 6 GB+ phones; stronger play.
+# ~1.1 GB as Q4_K_M: for 6 GB+ phones; stronger play.
 
 model:
   name: Qwen/Qwen3-1.7B
@@ -9,7 +9,7 @@ data:
   n_eval: 256
 
 train:
-  output_dir: runs/genaro-1.7b-v3
+  output_dir: runs/genaro-1.7b
   num_train_epochs: 2
   per_device_train_batch_size: 16
   gradient_accumulation_steps: 4      # effective batch 64
