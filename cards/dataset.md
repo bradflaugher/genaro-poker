@@ -62,7 +62,7 @@ variants (Texas Hold'em, Omaha, Five-Card Draw, Seven-Card Stud, Short Deck, Cra
 | `single_teacher_action` | one teacher's move (agrees with the majority 87% of the time) |
 | `grammar` | the exact GBNF grammar PokerSI used for the decision |
 | `id` | self-play record id (seed-recordnumber) |
-| `speak`, `hint` (test only) | whether that turn was a talk turn, and PokerSI's talk hint |
+| `speak`, `hint` | PokerSI's talk plan for the turn: whether it was a talk turn, and the talk hint |
 
 ## How it was made
 

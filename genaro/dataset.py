@@ -32,6 +32,7 @@ def row(r: dict, say: str | None) -> dict:
         "teacher_action": r["teacher"].get("action", "discard"),
         "single_teacher_action": r.get("single_teacher", r["teacher"]).get("action", "discard"),
         "grammar": r["grammar"], "id": r["id"],
+        "speak": r["speak"], "hint": r["hint"],  # PokerSI's TalkPlan for this turn (same schema in both splits)
     }
 
 
@@ -53,7 +54,7 @@ def main() -> None:
         rng.shuffle(by[v])
         test += by[v][:100]
     Dataset.from_list([row({**r, "teacher": {k: v for k, v in r["majority"].items() if k != "votes"}, "single_teacher": r["teacher"]}, None)
-                       | {"speak": r["speak"], "hint": r["hint"]} for r in test]).to_parquet(str(OUT / "test.parquet"))
+                       for r in test]).to_parquet(str(OUT / "test.parquet"))
     print(f"train {len(train)} rows, test {len(test)} rows -> {OUT}")
 
 
