@@ -5,7 +5,7 @@ PY := uv run --no-sync python
 POKERSI ?= $(HOME)/Work/PokerSI
 SIZE ?= 0.6b
 
-.PHONY: setup bridge data votes solve relabel-talk sft-data train gguf eval play solver-play dagger report dataset guard
+.PHONY: setup vllm-env bridge data votes solve relabel-talk sft-data train gguf eval play solver-play dagger report dataset guard bench-train
 
 setup:                # Python env (torch cu134, transformers, TRL) + JDK/Kotlin for the bridge
 	uv sync
@@ -19,7 +19,10 @@ data: bridge          # self-play every variant; one record per decision (~15 mi
 	mise exec -- java -jar bridge/bridge.jar dump --hands 30000 --seed 1 --out data/train-decisions.jsonl
 	mise exec -- java -jar bridge/bridge.jar dump --hands 3000 --seed 2 --out data/test-decisions.jsonl
 
-teacher:              # table talk from Gemma 4 E4B, filtered by PokerSI's HandBlur (~1.5 h)
+vllm-env:             # vLLM for the table-talk teacher, in its own env (it pins its own torch); ~12x faster than HF generate
+	mkdir -p ~/Work/vllm-env && cd ~/Work/vllm-env && uv venv -p 3.12 .venv && VIRTUAL_ENV=$$HOME/Work/vllm-env/.venv uv pip install vllm
+
+teacher:              # table talk from Gemma 4 E4B (vLLM; --engine hf without it), filtered by PokerSI's HandBlur
 	$(PY) -m genaro.teacher --split train --n 12000 --batch 128 --k 2 --teacher google/gemma-4-E4B-it
 
 votes:                # 9-teacher majority labels for the training + eval rows (same records, ~20 min)
@@ -32,7 +35,7 @@ solve:                # solver labels (bridge/Solver.kt) for 36k training + 600 
 	mise exec -- java -jar bridge/bridge.jar dump --hands 3000 --seed 2 --out data/test-decisions-solved.jsonl --solve-ids data/test-solve-ids.txt
 	mise exec -- java -jar bridge/bridge.jar dump --hands 30000 --seed 1 --out data/train-decisions-solved.jsonl --solve-ids data/solve-ids.txt
 
-relabel-talk:         # rewrite the lines of talk turns whose move the solver changed (Gemma 4 E4B)
+relabel-talk:         # rewrite the lines of talk turns whose move the solver changed (Gemma 4 E4B, ~8 min with vLLM)
 	$(PY) -m genaro.teacher --relabel solver --batch 128 --k 3
 
 solver-play:          # the solver itself in live play vs House Bots (its sanity check as a teacher)
@@ -68,3 +71,6 @@ dataset:              # Parquet export for the Hugging Face dataset repo
 
 guard:                # unified-memory watchdog for long jobs on the N1X
 	setsid nohup scripts/memguard.sh > memguard.log 2>&1 < /dev/null &
+
+bench-train:          # training throughput of the recipe's variants (FA2, padding-free, batch size, compile)
+	$(PY) -m genaro.bench_train baseline fa2 fa2-padfree fa2-padfree-bs32

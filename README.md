@@ -120,6 +120,9 @@ PokerSI (Kotlin) ──bridge──▶ self-play: every decision's exact prompt 
 
 Needs: an NVIDIA GPU (24 GB is plenty for 0.6B), a PokerSI checkout, and llama.cpp in
 `~/Work/llama.cpp` (`build/` CPU; `build-cuda/` optional, for `GENARO_GPU=1` fast evals).
+`make vllm-env` once (plus `ninja` and the CUDA toolkit) for the fast table-talk teacher.
+Speeds and settings for the laptop this was built on are in
+[train-me](https://github.com/bradflaugher/train-me#speed-what-is-fast-and-what-is-slow).
 
 ```bash
 make setup            # uv env (torch, transformers, TRL) + JDK 21 / Kotlin via mise

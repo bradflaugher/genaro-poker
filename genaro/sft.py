@@ -28,7 +28,7 @@ def main() -> None:
     m, d, t = cfg["model"], cfg.get("data", {}), cfg["train"]
     ds = load_from_disk(str(DATA / d.get("path", "sft"))).train_test_split(test_size=d.get("n_eval", 256), seed=42)
     tok = AutoTokenizer.from_pretrained(m["name"])
-    model = AutoModelForCausalLM.from_pretrained(m["name"], dtype=torch.bfloat16, device_map="cuda", attn_implementation="sdpa")
+    model = AutoModelForCausalLM.from_pretrained(m["name"], dtype=torch.bfloat16, device_map="cuda", attn_implementation=m.get("attn", "sdpa"))
     peft = LoraConfig(task_type="CAUSAL_LM", target_modules="all-linear", **cfg["lora"]) if cfg.get("lora") else None
     trainer = SFTTrainer(model=model, args=SFTConfig(**t), train_dataset=ds["train"], eval_dataset=ds["test"],
                          processing_class=tok, peft_config=peft)

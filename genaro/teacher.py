@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import random
 from collections import defaultdict
 from pathlib import Path
@@ -71,6 +72,26 @@ def generate(model, tok, prompts: list[list[dict]], k: int, batch: int) -> list[
     return outs
 
 
+VLLM_PY = Path(os.environ.get("GENARO_VLLM_PY", Path.home() / "Work/vllm-env/.venv/bin/python"))
+
+
+def generate_vllm(model: str, prompts: list[list[dict]], k: int, seed: int) -> list[list[str]]:
+    """Same sampling as generate(), through vLLM in its own environment (see README: Setup)."""
+    import subprocess
+    import tempfile
+    # Unified memory: a full page cache makes the driver's GPU allocations fail (NV_ERR_NO_MEMORY)
+    # and the OOM killer take vLLM. Drop it first when passwordless sudo allows.
+    subprocess.run(["sudo", "-n", "sh", "-c", "sync; echo 3 > /proc/sys/vm/drop_caches"], capture_output=True)
+    with tempfile.TemporaryDirectory() as d:
+        inp, out = Path(d) / "in.jsonl", Path(d) / "out.jsonl"
+        inp.write_text("".join(json.dumps({"messages": p}) + "\n" for p in prompts))
+        env = {**os.environ, "PATH": f"{VLLM_PY.parent}:/opt/cuda/bin:{os.environ['PATH']}", "CUDA_HOME": "/opt/cuda",
+               "HF_HUB_DISABLE_XET": "1"}  # vLLM JIT-builds kernels with ninja + nvcc
+        subprocess.run([str(VLLM_PY), str(Path(__file__).with_name("vllm_gen.py")), str(inp), str(out),
+                        "--model", model, "--n", str(k), "--seed", str(seed)], check=True, env=env)
+        return [json.loads(line)["outs"] for line in open(out)]
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--split", default="train")
@@ -79,6 +100,8 @@ def main() -> None:
     ap.add_argument("--batch", type=int, default=32)
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--teacher", default=TEACHER)
+    ap.add_argument("--engine", choices=["vllm", "hf"], default="vllm",
+                    help="vllm: ~8x faster, same sampling and filter yield (genaro/vllm_gen.py, own env); hf: transformers generate")
     ap.add_argument("--relabel", choices=["majority", "solver"],
                     help="rewrite the lines of talk turns whose move the new label changes (-> train-talk-<label>.jsonl)")
     a = ap.parse_args()
@@ -92,12 +115,15 @@ def main() -> None:
         rows = sample(a.split, a.n, a.seed)
     talky = [r for r in rows if r["speak"]]
     print(f"{len(rows)} decisions, {len(talky)} talk turns")
-    hw.setup()
-    tok = AutoTokenizer.from_pretrained(a.teacher)
-    tok.padding_side = "left"
-    model = AutoModelForCausalLM.from_pretrained(a.teacher, dtype=torch.bfloat16, device_map="cuda",
-                                                 attn_implementation={"": "sdpa", "text_config": "sdpa", "vision_config": "sdpa", "audio_config": "eager"})
-    cands = generate(model, tok, [teacher_prompt(r) for r in talky], a.k, a.batch)
+    if a.engine == "vllm":
+        cands = generate_vllm(a.teacher, [teacher_prompt(r) for r in talky], a.k, a.seed)
+    else:
+        hw.setup()
+        tok = AutoTokenizer.from_pretrained(a.teacher)
+        tok.padding_side = "left"
+        model = AutoModelForCausalLM.from_pretrained(a.teacher, dtype=torch.bfloat16, device_map="cuda",
+                                                     attn_implementation={"": "sdpa", "text_config": "sdpa", "vision_config": "sdpa", "audio_config": "eager"})
+        cands = generate(model, tok, [teacher_prompt(r) for r in talky], a.k, a.batch)
     with open(DATA / (f"train-teacher-raw-{a.relabel}.jsonl" if a.relabel else f"{a.split}-teacher-raw.jsonl"), "w") as f:
         for r, cs in zip(talky, cands):
             f.write(json.dumps({"id": r["id"], "cands": cs}) + "\n")

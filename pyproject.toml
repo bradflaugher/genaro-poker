@@ -17,7 +17,7 @@ dependencies = [
     "tensorboard",
     "liger-kernel",
     "bitsandbytes",
-    "kernels>=0.18.0",
+    "kernels>=0.17.2,<0.18",  # transformers 5.22 loads Hub kernels (FlashAttention 2) with 0.17.x
     "nvidia-ml-py>=13.615.71",
     "sentencepiece>=0.2.2",
 ]

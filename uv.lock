@@ -492,7 +492,7 @@ requires-dist = [
     { name = "accelerate" },
     { name = "bitsandbytes" },
     { name = "datasets" },
-    { name = "kernels", specifier = ">=0.18.0" },
+    { name = "kernels", specifier = ">=0.17.2,<0.18" },
     { name = "liger-kernel" },
     { name = "nvidia-ml-py", specifier = ">=13.615.71" },
     { name = "peft" },
@@ -646,7 +646,7 @@ wheels = [
 
 [[package]]
 name = "kernels"
-version = "0.18.0"
+version = "0.17.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "huggingface-hub" },
@@ -655,23 +655,23 @@ dependencies = [
     { name = "sigstore" },
     { name = "tomlkit" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/97/b7/bf12196364eb9dafb2c6d97fc3bdd22aa27c8bfcdda9ad34e221a4142e56/kernels-0.18.0.tar.gz", hash = "sha256:a7d2718db9fa89458b5ec485cafc5672d6196f4d62651af03433cc43cb89e439", size = 441686, upload-time = "2026-10-28T14:09:57.847Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/44/ae/f941c7fcc00384b84b9e9b74fdd1b7a8455a719ed5b3900a49e3a9a2af2e/kernels-0.17.2.tar.gz", hash = "sha256:42e4a5758d333c6b82abfc72daf37c690fd66591b8d9d8fc509e14fceff74d72", size = 334035, upload-time = "2026-10-02T13:34:30.163Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/b5/79/e3eecadfdcbfd1bc7302faaad96232665a9ff151e0f175a62fdcfd6fa50f/kernels-0.18.0-cp38-abi3-macosx_10_12_x86_64.whl", hash = "sha256:8176f667c87e18592db8369e0119bc47bb46c56539ff5fe0724fcc1d0c9c5b61", size = 2462029, upload-time = "2026-10-28T14:09:31.408Z" },
-    { url = "https://files.pythonhosted.org/packages/85/fd/28ef92b8088d2db04b3e67e301926704f9cbd930ef75530def13f3a135f8/kernels-0.18.0-cp38-abi3-macosx_11_0_arm64.whl", hash = "sha256:83e10f99d0c9ef1ddd2838cfb300b679a8f3f79f4675f6e109582c72fa350763", size = 2235654, upload-time = "2026-10-28T14:09:33.29Z" },
-    { url = "https://files.pythonhosted.org/packages/6f/81/edde1152326b99c2b3ae2e504507deda921e9d8a820850da1e2e877fcc3e/kernels-0.18.0-cp38-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:46c5d81f9d26283f9b32239b7ac3ef4fa7e44a6815c99fdaecc960fc04d35670", size = 2182928, upload-time = "2026-10-28T14:09:35.427Z" },
-    { url = "https://files.pythonhosted.org/packages/be/75/5f25db7121f065091ad642cceff77dbe392d689a78749857b235f9689016/kernels-0.18.0-cp38-abi3-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:78add5ffa75aeedfaa6701f695b7f77255bc48a9df42b0d4e07ee098e8122600", size = 2148354, upload-time = "2026-10-28T14:09:37.128Z" },
-    { url = "https://files.pythonhosted.org/packages/e0/e5/68ace2b27a491d8f3cf13dfcc9ec3d4f1bc255f50ee762b293bea4d627bd/kernels-0.18.0-cp38-abi3-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:b263fc75dcdb5073e1f67bda658fbf62e1a46b4c8015a15ea2646c59f665446a", size = 9119403, upload-time = "2026-10-28T14:09:38.76Z" },
-    { url = "https://files.pythonhosted.org/packages/19/77/f9d996a689af4d082328aa9d1d4330cf6192d17909b3f0df87f094d303ac/kernels-0.18.0-cp38-abi3-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:144f1112cb8b8079a3a13926be8da997305e219b81e4bbd8a6e252a9282f5eca", size = 2324616, upload-time = "2026-10-28T14:09:41.219Z" },
-    { url = "https://files.pythonhosted.org/packages/9a/c6/175a3e088dba2563b06be92bc3d96163fa4824fed7d9086c66cef49628f5/kernels-0.18.0-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:fd3840703d7e080a42ad5a02f8e1a9aa31764445a2694ed884a736d2f1ae878c", size = 2638461, upload-time = "2026-10-28T14:09:43.19Z" },
-    { url = "https://files.pythonhosted.org/packages/dc/6f/bfc541758a035dd5a0b4c272a5109bd1d8d4523c729807cd9dcb3b46baef/kernels-0.18.0-cp38-abi3-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:e16f6fe40e3e16a81c303f1c987da0976e43d27079036f3d84e0c720c0de3ca7", size = 2343530, upload-time = "2026-10-28T14:09:45.159Z" },
-    { url = "https://files.pythonhosted.org/packages/02/2d/062619a79e644ce5126302449de5ecbdb0c6215785d6ce58c3c7712adb7d/kernels-0.18.0-cp38-abi3-musllinux_1_2_aarch64.whl", hash = "sha256:a86448ef68793a61d3d8824b58e7688637fc8977baecd54f86364aeca3f39205", size = 2358849, upload-time = "2026-10-28T14:09:46.8Z" },
-    { url = "https://files.pythonhosted.org/packages/7b/2e/b5764b3570228aa8213ab2b94725caad8f53dac33e2d4cbc0060a0ddd242/kernels-0.18.0-cp38-abi3-musllinux_1_2_armv7l.whl", hash = "sha256:51c1e90b05c13fe38f1e1e643685a6294f3409913566a9e9478bc38fba87c537", size = 2419389, upload-time = "2026-10-28T14:09:48.427Z" },
-    { url = "https://files.pythonhosted.org/packages/a8/ac/2bf40266f46adba394aa130da54d1bcc74b29e4a4c5a89d50097daceea56/kernels-0.18.0-cp38-abi3-musllinux_1_2_i686.whl", hash = "sha256:a7c35dd97ccb2dea448cf3358f52619e5a2179de3d2542cfedccc186732cb094", size = 2469569, upload-time = "2026-10-28T14:09:49.901Z" },
-    { url = "https://files.pythonhosted.org/packages/6a/ee/bd79aedf35a9c82b217c0a1c67cc608eebe43f6a112d4676f24b50763b31/kernels-0.18.0-cp38-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:12e488bc19fdefd6239ed640bb5ced2b0c128e6b48dbec2092358a7f5de85d33", size = 2469973, upload-time = "2026-10-28T14:09:51.404Z" },
-    { url = "https://files.pythonhosted.org/packages/62/1c/39ee74b54720d0599300024e74afda16b59f9aa01b7f7d93da23d4b0932b/kernels-0.18.0-cp38-abi3-win32.whl", hash = "sha256:f2e46d88c2dc0f7ccc52826b3a2ba86ac22f1010114ac0dd1553f94ec5bf153b", size = 2140491, upload-time = "2026-10-28T14:09:52.992Z" },
-    { url = "https://files.pythonhosted.org/packages/93/62/94e22a681c3038a5f11c5660234a8aef970ebe0b6d54311e1f0f511069e9/kernels-0.18.0-cp38-abi3-win_amd64.whl", hash = "sha256:1d4d3496bb4d75f7732975e341dd5b66706d24c44615e841c797d8433df98a60", size = 2551003, upload-time = "2026-10-28T14:09:54.629Z" },
-    { url = "https://files.pythonhosted.org/packages/b4/d1/639ca74a7abb7e4b9dc8758f14c6694ae36161eeedc88ac5ca196b680028/kernels-0.18.0-cp38-abi3-win_arm64.whl", hash = "sha256:9f1687dcf1d8573e54f1eb2888cd46e1b2d73542aa27d8f472c317ed938fe15f", size = 2498192, upload-time = "2026-10-28T14:09:56.377Z" },
+    { url = "https://files.pythonhosted.org/packages/1a/fe/06710034ad93f61b5faeff4df223afd80c051e2880aa35e7619cd4bb4468/kernels-0.17.2-cp38-abi3-macosx_10_12_x86_64.whl", hash = "sha256:c008fe3c13fa05647baf50eb94a20f966bbbff36a9c5b09e9eb75abf2c3ec39e", size = 1771353, upload-time = "2026-10-02T13:34:03.14Z" },
+    { url = "https://files.pythonhosted.org/packages/79/31/c36ef5bc9378f98e7833d6b0309c197993e80bbb0767cf0249a382138151/kernels-0.17.2-cp38-abi3-macosx_11_0_arm64.whl", hash = "sha256:672d53ce5aaab997cbd2339898876994aa54e944291cdbc3af2a9baa5da4efaa", size = 1661109, upload-time = "2026-10-02T13:34:05.181Z" },
+    { url = "https://files.pythonhosted.org/packages/3e/ca/cc483a1edcaccab94270872b971c7fd0b227471f85fd40737609ab257f66/kernels-0.17.2-cp38-abi3-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:e738f39fc0f9294470d9f7add3e7adb1fcdff27bd475d8549484ec19d1f33358", size = 1891680, upload-time = "2026-10-02T13:34:06.688Z" },
+    { url = "https://files.pythonhosted.org/packages/b0/2f/e890e2b88909fef88134c046111fb8cbfd7602568773db25b9ab22f92d41/kernels-0.17.2-cp38-abi3-manylinux_2_17_armv7l.manylinux2014_armv7l.whl", hash = "sha256:0a138e4d4c15a1285267c2fd3dcb538956908efb989aa41d184e0c8788715584", size = 1874348, upload-time = "2026-10-02T13:34:08.327Z" },
+    { url = "https://files.pythonhosted.org/packages/9f/47/6e52040202ae7be89d164b1b653724183c0a5114eec289cc68dd8c64d8bb/kernels-0.17.2-cp38-abi3-manylinux_2_17_ppc64le.manylinux2014_ppc64le.whl", hash = "sha256:9d0ddeeb457b5f0f15fd5dfb73696e627e27e3186b5b1f291290abaa8d0fbd70", size = 2199804, upload-time = "2026-10-02T13:34:09.842Z" },
+    { url = "https://files.pythonhosted.org/packages/2a/cc/77ab66d6b600419fb74038aeb7f7475aa3574054f2a430fcaa1f1f345f84/kernels-0.17.2-cp38-abi3-manylinux_2_17_s390x.manylinux2014_s390x.whl", hash = "sha256:ad30f2d9ac258d6d021a246b14244ed8e63cfc3e36be06625483c3c2f9d7b4b2", size = 2012179, upload-time = "2026-10-02T13:34:11.595Z" },
+    { url = "https://files.pythonhosted.org/packages/dd/7a/5a586b2549424dce9bee5ed95428ff90967e9482ce36c8a51c81d1b27d91/kernels-0.17.2-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:f4be3337070e6979bb419e513d9a51ddfbfe61a707afd6aa7f3cb6a61764a46a", size = 1896075, upload-time = "2026-10-02T13:34:13.537Z" },
+    { url = "https://files.pythonhosted.org/packages/bb/a7/c6e448216f1cfb8abe8a8cbc02d1a5ace44d137706d39d9051266d35c596/kernels-0.17.2-cp38-abi3-manylinux_2_5_i686.manylinux1_i686.whl", hash = "sha256:21d0a2a9265b9426eb182001095f885946fd6891ad5e8897854a8ab720fb561e", size = 2042085, upload-time = "2026-10-02T13:34:15.189Z" },
+    { url = "https://files.pythonhosted.org/packages/0a/12/c511b22a9226cb3f55b171c2c02acc4064a7083fb5e731bef2ace2001337/kernels-0.17.2-cp38-abi3-musllinux_1_2_aarch64.whl", hash = "sha256:78f6c681c66b4a255bcc2a565977b6c7578aa0764b29ae9726a7c91305e265f4", size = 2069942, upload-time = "2026-10-02T13:34:16.935Z" },
+    { url = "https://files.pythonhosted.org/packages/82/89/3591cd13f702a4e37d0b19ddbc17cfe6b81047ccaefda1db7a98d233e75d/kernels-0.17.2-cp38-abi3-musllinux_1_2_armv7l.whl", hash = "sha256:d442dd9cbc99b11a847e2b69d0bc89c15001ac1e0e5e6bc0b7b1f1c5fe2d94f2", size = 2151706, upload-time = "2026-10-02T13:34:19.07Z" },
+    { url = "https://files.pythonhosted.org/packages/65/6a/c354a850f771e526b53fa77ffc29682d8e0b4143ce9fcfc7de649102b236/kernels-0.17.2-cp38-abi3-musllinux_1_2_i686.whl", hash = "sha256:12628a4d0b79529a9fd11c45bae535dfed64df3f5f2cfd93af6b5a9d9f858bde", size = 2180071, upload-time = "2026-10-02T13:34:21.05Z" },
+    { url = "https://files.pythonhosted.org/packages/4b/ba/72c34f018c9a50f3d5dbd75c63601fd5128d72a54e18453dfb3c6bb1c888/kernels-0.17.2-cp38-abi3-musllinux_1_2_x86_64.whl", hash = "sha256:d81ed190c808b15604fbcc78cc0c5b5a35025ec88b077b7df7a1068d0edd37cf", size = 2181381, upload-time = "2026-10-02T13:34:22.613Z" },
+    { url = "https://files.pythonhosted.org/packages/4e/a3/72c081d13da7cabb135402d044b444ec876499bdbef319c27fcd2e12b91c/kernels-0.17.2-cp38-abi3-win32.whl", hash = "sha256:8dcd846de1627564334bcc51503da10a9acadf4d2cad133fc4be36ccd0dbb859", size = 1489441, upload-time = "2026-10-02T13:34:24.715Z" },
+    { url = "https://files.pythonhosted.org/packages/91/b8/913dfd8d8880d07ef17560641d762fc39d908fb360218c60023a9bfa78a5/kernels-0.17.2-cp38-abi3-win_amd64.whl", hash = "sha256:4d886ddce44d16ff38681b312042bc6e8f04c632c332139ff4dbefe2ba4b52a8", size = 1632837, upload-time = "2026-10-02T13:34:26.41Z" },
+    { url = "https://files.pythonhosted.org/packages/f9/3f/f71cfd893f74953a97f01552df36a20ecb8abbf218cfa92a5676348fd501/kernels-0.17.2-cp38-abi3-win_arm64.whl", hash = "sha256:61ed26234ffbab697127dadfde152645d511cae5361479e8151c2f4189a38e47", size = 1508916, upload-time = "2026-10-02T13:34:28.329Z" },
 ]
 
 [[package]]
