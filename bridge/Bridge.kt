@@ -164,6 +164,9 @@ fun dump(a: Map<String, String>) {
     // decision (a denoised label). Votes use their own RNGs, so the records are unchanged.
     val voteIds = a["vote-ids"]?.let { File(it).readLines().toHashSet() } ?: emptySet()
     val votes = (a["votes"] ?: "9").toInt()
+    // Optional: solver labels (Solver.kt) for these record ids. The solver has its own RNG.
+    val solveIds = a["solve-ids"]?.let { File(it).readLines().toHashSet() } ?: emptySet()
+    val solverParams = SolverParams(worlds = (a["worlds"] ?: "480").toInt())
     var records = 0
     var handIx = 0
     while (handIx < hands) {
@@ -178,8 +181,8 @@ fun dump(a: Map<String, String>) {
         for (k in 0 until handsHere) {
             if (handIx >= hands || chips.count { it > 0 } < 2) break
             handIx++
-            val h = Hand(variant, personas.indices.map { SeatSetup(personas[it].name, chips[it]) },
-                button = k % personas.size, stakes = stakes, seed = rng.nextLong(), handNumber = k + 1)
+            val rec = HandRecord(variant, personas.map { it.name }, chips, k % personas.size, stakes, rng.nextLong(), k + 1)
+            val h = rec.start()
             var guard = 0
             while (!h.isFinished && guard++ < 500) {
                 val seat = h.toAct ?: break
@@ -195,6 +198,7 @@ fun dump(a: Map<String, String>) {
                 val me = ctx.seats.first { it.seat == seat }
                 val id = "s${a["seed"]}-$records"
                 val majority = if (id in voteIds) majorityOf(ctx, p, id, votes) else null
+                val solved = if (id in solveIds) Solver.solve(rec, h, seat, personas.map(::styleOf), styleOf(p), solverParams, id.hashCode().toLong()) else null
                 out.write(obj(
                     "id" to id, "variant" to variant.name, "street" to ctx.street,
                     "hand" to ctx.handNumber, "seats" to personas.size, "seat" to seat,
@@ -217,11 +221,17 @@ fun dump(a: Map<String, String>) {
                     "teacher" to RawJson(obj(*asOutput(decision, ctx).map { it.key to it.value }.toTypedArray())),
                     "bot_say" to teacher.say,
                     "majority" to majority?.let { RawJson(obj(*it.map { e -> e.key to e.value }.toTypedArray())) },
+                    "solver" to solved?.let { sv ->
+                        RawJson(obj(*asOutput(sv.choice, ctx).map { it.key to it.value }.toTypedArray(),
+                            "worlds" to sv.worlds, "ess" to "%.1f".format(sv.effectiveWorlds).toDouble(),
+                            "ev_bb" to sv.evBb.entries.map { (d, v) -> RawJson(obj(*asOutput(d, ctx).map { it.key to it.value }.toTypedArray(), "ev" to "%.3f".format(v).toDouble(), "se" to "%.3f".format(sv.seBb[d]).toDouble())) }))
+                    },
                 ))
                 out.newLine()
                 records++
                 if (teacher.say != null && plan.speak) talk.record(p.name, teacher.say!!)
                 h.apply(seat, decision, teacher.say)
+                rec.moves += seat to decision
             }
             chips = personas.indices.map { h.result?.finalChips?.getOrNull(it) ?: chips[it] }
             if (chips.count { it > 0 } < 2) chips = chips.map { if (it == 0) bb * 100 else it }
@@ -264,6 +274,9 @@ fun blur() {
 class ServerAgent(
     private val url: String, private val persona: Persona, private val talk: TableTalk, private val rng: Random,
     private val stats: MutableMap<String, Double>, private val log: java.io.Writer?, private val fallback: HouseBot,
+    /** DAgger: write every decision this seat reaches, labelled by the solver. */
+    private val collect: java.io.Writer? = null, private val rec: HandRecord? = null, private val styles: List<BotStyle> = emptyList(),
+    private val idPrefix: String = "",
 ) {
     private val http = HttpClient.newBuilder().connectTimeout(Duration.ofSeconds(5)).build()
     private var lastKind: String? = null
@@ -294,12 +307,42 @@ class ServerAgent(
         val reply = LlmReply.parse(raw, ctx.legal, ctx.holeCards.size)
         val decision = reply.decision ?: run { stats.merge("fallbacks", 1.0, Double::plus); fallback.decideNow(ctx).decision }
         var say = reply.say?.trim()?.takeIf { it.isNotEmpty() && plan.speak }
+        var cleanLine = say != null
         if (say != null) {
             stats.merge("lines", 1.0, Double::plus)
             stats.merge("words", say.split(Regex("\\s+")).size.toDouble(), Double::plus)
-            if (say.split(Regex("\\s+")).size > 12) stats.merge("long_lines", 1.0, Double::plus)
-            if (HandBlur.blurred(blurFor(ctx, faceUpOf(h, ctx.seat))(say))) stats.merge("leaks", 1.0, Double::plus)
-            if (talk.isRepeat(say, persona.name)) { stats.merge("repeats", 1.0, Double::plus); say = null }
+            if (say.split(Regex("\\s+")).size > 12) { stats.merge("long_lines", 1.0, Double::plus); cleanLine = false }
+            if (HandBlur.blurred(blurFor(ctx, faceUpOf(h, ctx.seat))(say))) { stats.merge("leaks", 1.0, Double::plus); cleanLine = false }
+            if (talk.isRepeat(say, persona.name)) { stats.merge("repeats", 1.0, Double::plus); say = null; cleanLine = false }
+        }
+        if (collect != null && rec != null) {
+            val sv = Solver.solve(rec, h, ctx.seat, styles, styleOf(persona), SolverParams(), (idPrefix + rec.moves.size).hashCode().toLong())
+            val label = asOutput(sv.choice, ctx)
+            val mine = asOutput(ctx.legal.coerce(decision), ctx)
+            val sameWord = (label["action"] ?: "discard") == (mine["action"] ?: "discard")
+            val me = ctx.seats.first { it.seat == ctx.seat }
+            synchronized(collect) {
+                collect.write(obj(
+                    "id" to "$idPrefix-${rec.moves.size}", "variant" to ctx.variant.name, "street" to ctx.street, "seat" to ctx.seat,
+                    "persona" to RawJson(obj("name" to persona.name, "voice" to persona.voice, "catchphrase" to persona.catchphrase,
+                        "tightness" to persona.tightness, "aggression" to persona.aggression, "bluffiness" to persona.bluffiness, "temperature" to persona.temperature)),
+                    "speak" to plan.speak, "hint" to plan.hint, "mine" to plan.mine,
+                    "others" to plan.others.map { RawJson(obj("speaker" to it.speaker, "text" to it.text)) },
+                    "system" to msgs[0].content, "user" to msgs[1].content, "grammar" to grammar,
+                    "discard" to (ctx.legal.discard != null), "pot" to ctx.pot, "bb" to ctx.bigBlind, "to_call" to ctx.legal.toCall,
+                    "chips" to me.chips, "bet" to me.betThisRound, "equity" to null, "made_hand" to ctx.madeHand,
+                    "hole" to ctx.holeCards.map { it.toString() }, "board" to ctx.board.map { it.toString() },
+                    "face_up" to faceUpOf(h, ctx.seat).map { it.toString() },
+                    "short_deck" to ctx.variant.usesShortDeck, "board_plays" to !ctx.variant.mustUseTwoHoleCards,
+                    "student" to RawJson(obj(*mine.map { it.key to it.value }.toTypedArray())), "raw" to raw,
+                    "teacher" to RawJson(obj(*label.map { it.key to it.value }.toTypedArray())),
+                    // the student's own line is kept only if clean and written for the move the solver wants
+                    "say" to if (plan.speak && cleanLine && sameWord) say else null,
+                    "solver" to RawJson(obj(*label.map { it.key to it.value }.toTypedArray(),
+                        "ev_bb" to sv.evBb.entries.map { (d, v) -> RawJson(obj(*asOutput(d, ctx).map { it.key to it.value }.toTypedArray(), "ev" to "%.3f".format(v).toDouble(), "se" to "%.3f".format(sv.seBb[d]).toDouble())) })),
+                ))
+                collect.write("\n")
+            }
         }
         if (plan.speak && say == null && reply.say == null) stats.merge("silent_on_talk_turn", 1.0, Double::plus)
         log?.apply { write(obj("hand" to ctx.handNumber, "street" to ctx.street, "speak" to plan.speak, "raw" to raw,
@@ -316,9 +359,11 @@ fun play(a: Map<String, String>) {
     val mode = a["mode"] ?: "server"
     val stats = LinkedHashMap<String, Double>()
     val log = a["log"]?.let { File(it).bufferedWriter() }
+    val collect = a["collect"]?.let { File(it).bufferedWriter() }
     var net = 0.0
     var bbSum = 0.0
     var bbSq = 0.0
+    val perHand = ArrayList<Double>()
     for (k in 0 until hands) {
         // identical deals, personas and opponents for every model at the same (seed, k)
         val rng = Random(seed * 1_000_003 + k)
@@ -328,9 +373,11 @@ fun play(a: Map<String, String>) {
         val bots = personas.map { HouseBot(styleOf(it), rng.nextLong(), 250, talk = true, tableTalk = talk) }
         val (stakes, bb) = stakesFor(variant, rng)
         val start = bb * 100
-        val h = Hand(variant, personas.map { SeatSetup(it.name, start) }, button = k % 4, stakes = stakes, seed = rng.nextLong(), handNumber = k + 1)
+        val rec = HandRecord(variant, personas.map { it.name }, List(4) { start }, k % 4, stakes, rng.nextLong(), k + 1)
+        val h = rec.start()
         val agentRng = Random(seed + k)
-        val model = ServerAgent(url, personas[0], talk, agentRng, stats, log, HouseBot(styleOf(personas[0]), 1, 250, talk = false))
+        val model = ServerAgent(url, personas[0], talk, agentRng, stats, log, HouseBot(styleOf(personas[0]), 1, 250, talk = false),
+            collect, rec, personas.map(::styleOf), "d$seed-$k")
         var guard = 0
         while (!h.isFinished && guard++ < 500) {
             val seat = h.toAct ?: break
@@ -339,9 +386,18 @@ fun play(a: Map<String, String>) {
                 seat != 0 -> bots[seat].decideNow(ctx)
                 mode == "server" -> model.decide(h, ctx)
                 mode == "housebot" -> bots[0].decideNow(ctx)
+                mode == "solver" || mode == "solver-pure" -> {
+                    val t0 = System.nanoTime()
+                    val sv = Solver.solve(rec, h, 0, personas.map(::styleOf), if (mode == "solver") styleOf(personas[0]) else null,
+                        SolverParams(worlds = (a["worlds"] ?: "480").toInt()), seed * 7919 + k * 101 + rec.moves.size)
+                    stats.merge("decisions", 1.0, Double::plus)
+                    stats.merge("ms", (System.nanoTime() - t0) / 1e6, Double::plus)
+                    AgentReply(sv.choice)
+                }
                 else -> AgentReply(adviceDecision(ctx, personas[0]))
             }
             val d = ctx.legal.coerce(reply.decision)
+            rec.moves += seat to d
             reply.say?.let { talk.record(personas[seat].name, it) }
             h.apply(seat, d, reply.say)
         }
@@ -349,14 +405,16 @@ fun play(a: Map<String, String>) {
         net += delta
         bbSum += delta.toDouble() / bb
         bbSq += (delta.toDouble() / bb) * (delta.toDouble() / bb)
+        perHand += delta.toDouble() / bb
         if ((k + 1) % 50 == 0) System.err.println("  ${k + 1}/$hands hands, ${"%.1f".format(100 * bbSum / (k + 1))} bb/100")
     }
     log?.close()
+    collect?.close()
     stats["hands"] = hands.toDouble()
     stats["bb_per_100"] = 100 * bbSum / hands
     stats["bb_sum"] = bbSum
     stats["bb_sq"] = bbSq
-    File(a["out"]!!).writeText(obj(*stats.map { it.key to it.value }.toTypedArray()) + "\n")
+    File(a["out"]!!).writeText(obj(*stats.map { it.key to it.value }.toTypedArray(), "per_hand" to perHand) + "\n")
     System.err.println(stats)
 }
 
@@ -371,11 +429,42 @@ fun adviceDecision(ctx: DecisionContext, p: Persona): Decision {
     }
 }
 
+/** Self-check: replaying a hand on its real deck order reproduces every decision context; and solver timing. */
+fun solveTest(a: Map<String, String>) {
+    val rng = Random(a["seed"]!!.toLong())
+    var checked = 0; var bad = 0; var solved = 0; var ms = 0.0
+    val n = (a["solve"] ?: "20").toInt()
+    repeat((a["hands"] ?: "50").toInt()) {
+        val (variant, personas) = randomTable(rng)
+        val (stakes, bb) = stakesFor(variant, rng)
+        val rec = HandRecord(variant, personas.map { it.name }, personas.map { bb * 100 }, 0, stakes, rng.nextLong(), 1)
+        val h = rec.start()
+        val bots = personas.map { HouseBot(styleOf(it), rng.nextLong(), 250, talk = false) }
+        while (!h.isFinished) {
+            val seat = h.toAct ?: break
+            val ctx = h.context(seat)
+            val r = rec.start(Deck.stacked(rec.deckOrder(), variant.usesShortDeck))
+            for ((s2, d2) in rec.moves) r.apply(s2, d2)
+            checked++; if (r.context(seat) != ctx) bad++
+            if (solved < n && rng.nextDouble() < 0.3) {
+                val t = System.nanoTime()
+                val sv = Solver.solve(rec, h, seat, personas.map(::styleOf), styleOf(personas[seat]), SolverParams(worlds = (a["worlds"] ?: "480").toInt()), solved.toLong())
+                ms += (System.nanoTime() - t) / 1e6; solved++
+                System.err.println("${variant.name} ${ctx.street} ${ctx.madeHand} -> ${sv.choice}  ev(bb)=${sv.evBb.entries.joinToString { "${it.key}:${"%.2f".format(it.value)}±${"%.2f".format(sv.seBb[it.key])}" }} ess=${"%.0f".format(sv.effectiveWorlds)}/${sv.worlds}")
+            }
+            val d = ctx.legal.coerce(bots[seat].decideNow(ctx).decision)
+            h.apply(seat, d); rec.moves += seat to d
+        }
+    }
+    System.err.println("replay contexts identical: ${checked - bad}/$checked; solver ${"%.0f".format(ms / maxOf(solved, 1))} ms/decision over $solved")
+}
+
 fun main(argv: Array<String>) {
     when (argv.firstOrNull()) {
         "dump" -> dump(args(argv.drop(1).toTypedArray()))
         "blur" -> blur()
         "play" -> play(args(argv.drop(1).toTypedArray()))
+        "solvetest" -> solveTest(args(argv.drop(1).toTypedArray()))
         else -> System.err.println("usage: bridge dump|blur|play ...")
     }
 }

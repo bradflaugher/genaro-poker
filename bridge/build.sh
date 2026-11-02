@@ -11,5 +11,5 @@ git -C "$POKERSI" rev-parse --short HEAD > pokersi.rev
 kotlinc -nowarn -include-runtime -d bridge.jar \
   "$SRC"/engine/*.kt \
   "$SRC"/llm/{PokerPrompt,PokerGrammar,Persona,Personas,TalkPlan,LlmReply}.kt \
-  Bridge.kt
+  Bridge.kt Solver.kt
 echo "built bridge.jar against PokerSI $(cat pokersi.rev)"

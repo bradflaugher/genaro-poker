@@ -25,17 +25,20 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("gguf", nargs="?")
     ap.add_argument("--name", required=True)
-    ap.add_argument("--mode", default="server", choices=["server", "housebot", "advice"])
+    ap.add_argument("--mode", default="server", choices=["server", "housebot", "advice", "solver", "solver-pure"])
     ap.add_argument("--hands", type=int, default=600, help="split across --workers")
     ap.add_argument("--workers", type=int, default=6)
     ap.add_argument("--port", type=int, default=8091)
+    ap.add_argument("--collect", help="DAgger: write every decision the model reaches, solver-labelled, to this JSONL")
+    ap.add_argument("--seed-offset", type=int, default=0, help="worker seeds start here (use new deals for DAgger collection)")
     a = ap.parse_args()
     srv = server(a.gguf, a.port, a.workers, threads=18) if a.mode == "server" else None
     per = a.hands // a.workers
     tmp = Path(tempfile.mkdtemp())
     try:
         procs = [subprocess.Popen(["mise", "exec", "--", "java", "-jar", str(JAR), "play", "--server", f"http://127.0.0.1:{a.port}",
-                                   "--mode", a.mode, "--hands", str(per), "--seed", str(w + 1), "--out", str(tmp / f"{w}.json"),
+                                   "--mode", a.mode, "--hands", str(per), "--seed", str(w + 1 + a.seed_offset), "--out", str(tmp / f"{w}.json"),
+                                   *(["--collect", str(tmp / f"{w}.collect.jsonl")] if a.collect else []),
                                    "--log", str(tmp / f"{w}.log")], cwd=ROOT, stderr=open(tmp / f"{w}.err", "w"))
                  for w in range(a.workers)]
         for p in procs:
@@ -48,6 +51,7 @@ def main() -> None:
         err = (tmp / f"{missing[0]}.err").read_text()[-3000:]
         raise SystemExit(f"workers {missing} failed (logs in {tmp}):\n{err}")
     parts = [json.loads((tmp / f"{w}.json").read_text()) for w in range(a.workers)]
+    per_hand = [x for p in parts for x in p.pop("per_hand", [])]  # in (worker, hand) order: identical deals across runs
     tot = {k: sum(p.get(k, 0.0) for p in parts) for k in set().union(*parts)}
     d = max(tot.get("decisions", 0), 1)
     lines = max(tot.get("lines", 0), 1)
@@ -64,6 +68,10 @@ def main() -> None:
         "over_12_words": round(tot.get("long_lines", 0) / lines, 4),
         "words_per_line": round(tot.get("words", 0) / lines, 1),
     }
+    if a.collect:
+        with open(a.collect, "w") as f:
+            for w in range(a.workers):
+                f.write((tmp / f"{w}.collect.jsonl").read_text())
     out = ROOT / "results" / f"play-{a.name}.json"
     out.parent.mkdir(exist_ok=True)
     logs = []
@@ -71,7 +79,7 @@ def main() -> None:
         f = tmp / f"{w}.log"
         if f.exists():
             logs += f.read_text().splitlines()[:50]
-    out.write_text(json.dumps({"summary": summary, "sample_log": [json.loads(x) for x in logs]}, indent=1))
+    out.write_text(json.dumps({"summary": summary, "per_hand_bb": per_hand, "sample_log": [json.loads(x) for x in logs]}, indent=1))
     print(json.dumps(summary, indent=2))
 
 

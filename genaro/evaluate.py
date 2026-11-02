@@ -28,8 +28,12 @@ LLAMA = Path(os.environ.get("LLAMA_CPP", Path.home() / "Work" / "llama.cpp"))
 
 
 def server(gguf: str, port: int, parallel: int, threads: int):
-    p = subprocess.Popen([str(LLAMA / "build/bin/llama-server"), "-m", gguf, "--port", str(port), "-c", str(4096 * parallel),
-                          "--parallel", str(parallel), "-t", str(threads), "--jinja", "--no-webui", "-ngl", "0"],
+    # CPU by default, like a phone. GENARO_GPU=1 uses a CUDA build (llama.cpp/build-cuda) for speed:
+    # same weights, grammar and sampling, only faster.
+    gpu = os.environ.get("GENARO_GPU") == "1"
+    binary = LLAMA / ("build-cuda" if gpu else "build") / "bin" / "llama-server"
+    p = subprocess.Popen([str(binary), "-m", gguf, "--port", str(port), "-c", str(4096 * parallel),
+                          "--parallel", str(parallel), "-t", str(threads), "--jinja", "--no-webui", "-ngl", "99" if gpu else "0"],
                          stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     for _ in range(300):
         try:
@@ -43,7 +47,7 @@ def server(gguf: str, port: int, parallel: int, threads: int):
 
 def ask(port: int, r: dict, seed: int) -> dict:
     body = {"messages": [{"role": "system", "content": r["system"]}, {"role": "user", "content": r["user"]}],
-            "grammar": r["grammar"], "temperature": r["persona"]["temperature"], "top_k": 40, "top_p": 0.95,
+            "grammar": r["grammar"], "temperature": float(os.environ.get("GENARO_TEMP", r["persona"]["temperature"])), "top_k": 40, "top_p": 0.95,
             "max_tokens": 96, "seed": seed, "chat_template_kwargs": {"enable_thinking": False}}
     req = urllib.request.Request(f"http://127.0.0.1:{port}/v1/chat/completions", json.dumps(body).encode(),
                                  {"Content-Type": "application/json"})
@@ -88,6 +92,30 @@ def judge(r: dict, out: dict | None) -> dict:
     elif eq >= 0.8 and a == "check" and any(m["word"] in ("raise", "allin") for m in r["menu"]):
         res["missed_value"] = 1
     return res
+
+
+def regret(solver: dict, out: dict | None) -> tuple[float, bool]:
+    """(EV given up vs the solver's best move, in big blinds; same move word as the solver).
+    A raise maps to the solver's nearest evaluated raise size; an unparseable reply counts as
+    the solver's worst move."""
+    evs = solver["ev_bb"]
+    if not out:
+        return -min(e["ev"] for e in evs), False
+    if "discard" in out:
+        hit = [e for e in evs if sorted(e.get("discard", [])) == sorted(out["discard"])]
+        return (-hit[0]["ev"] if hit else -min(e["ev"] for e in evs)), sorted(out["discard"]) == sorted(solver.get("discard", []))
+    a, amt = out.get("action"), out.get("amount", 0)
+    same = [e for e in evs if e.get("action") == a]
+    if a in ("raise", "allin"):
+        same = [e for e in evs if e.get("action") in ("raise", "allin")]
+        if a == "allin":
+            amt = max(e["amount"] for e in same) if same else amt
+    if not same:  # e.g. "fold" when checking was free: the app coerces it to check
+        same = [e for e in evs if e.get("action") in ({"fold": "check", "check": "call", "call": "check"}.get(a, a),)]
+    if not same:
+        return -min(e["ev"] for e in evs), False
+    e = min(same, key=lambda e: abs(e["amount"] - amt))
+    return -e["ev"], a == solver.get("action")
 
 
 def main() -> None:

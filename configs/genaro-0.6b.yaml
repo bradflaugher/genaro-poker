@@ -1,11 +1,11 @@
 # Genaro 0.6B: full fine-tune of Qwen3-0.6B (Apache 2.0) on PokerSI's exact prompts.
-# ~480 MB as Q4_K_M: fast on any phone that runs PokerSI.
+# ~397 MB as Q4_K_M: fast on any phone that runs PokerSI. Decisions repeated by EV at stake.
 
 model:
   name: Qwen/Qwen3-0.6B
 
 data:
-  path: sft-qwen3-maj  # uv run python -m genaro.build --model Qwen/Qwen3-0.6B --out sft-qwen3-maj  (majority labels)
+  path: sft-qwen3-solver-weighted  # sft-data with --weight-by-gap
   n_eval: 256
 
 train:

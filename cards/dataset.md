@@ -41,10 +41,10 @@ seat, and the reply its GBNF grammar allows.
 
 | split | rows | what |
 |---|---|---|
-| `train` | 22,941 | SFT conversations (`messages`: system, user, assistant) |
+| `train` | 35,756 | SFT conversations (`messages`: system, user, assistant) |
 | `test` | 600 | held-out decisions, 100 per variant, from separate self-play; the assistant turn is the reference move without a line |
 
-Mix (train): 16,008 quiet betting turns, 5,554 talk turns, 1,379 discard turns; all six
+Mix (train): 27,300 quiet betting turns, 6,369 talk turns, 2,087 discard turns; all six
 variants (Texas Hold'em, Omaha, Five-Card Draw, Seven-Card Stud, Short Deck, Crazy Pineapple),
 2-6 players, randomly rolled PokerSI personas.
 
@@ -58,8 +58,9 @@ variants (Texas Hold'em, Omaha, Five-Card Draw, Seven-Card Stud, Short Deck, Cra
 | `persona`, `temperature` | the character and the sampling temperature PokerSI uses for it |
 | `equity` | hero's Monte Carlo equity vs. the live opponents (2,000 samples) |
 | `pot`, `to_call`, `big_blind` | chips |
-| `teacher_action` | the label: majority of 9 teachers |
-| `single_teacher_action` | one teacher's move (agrees with the majority 87% of the time) |
+| `teacher_action` | the label: the search solver's move (`bridge/Solver.kt`) |
+| `housebot_action` | PokerSI's House Bot heuristic (majority of 9), for comparison; the v2 label |
+| `solver_ev_bb` | JSON: every move the solver evaluated, with its EV relative to the best move and its standard error, in big blinds |
 | `grammar` | the exact GBNF grammar PokerSI used for the decision |
 | `id` | self-play record id (seed-recordnumber) |
 | `speak`, `hint` | PokerSI's talk plan for the turn: whether it was a talk turn, and the talk hint |
@@ -68,12 +69,19 @@ variants (Texas Hold'em, Omaha, Five-Card Draw, Seven-Card Stud, Short Deck, Cra
 
 1. PokerSI's own engine, prompt builder and grammar (pure Kotlin) compiled into a bridge;
    seeded self-play over every variant, one record per decision.
-2. **Moves:** PokerSI's House Bot heuristic with the acting persona's style and 1,000-sample
-   equity, run 9 times independently; the majority move is the label.
+2. **Moves:** a decision-time search solver on PokerSI's engine. For every legal move it
+   samples 480 worlds (unseen cards reshuffled, weighted by how likely the opponents' past
+   actions were with those cards), replays the hand, makes the move and plays it out against a
+   population of opponent policies. The label is the move with the best lower confidence
+   bound on EV, with near-ties broken by the persona's style. The solver beats PokerSI's
+   House Bot by +256 ± 49 bb/100 on identical deals.
 3. **Table talk:** Gemma 4 E4B wrote 2 candidates per talk turn given the prompt and the
    chosen move. A candidate is kept only if it fits the grammar, has 2-12 words, uses no card
    or hand words, isn't a repeat by PokerSI's `TableTalk` rules, and passes PokerSI's
-   `HandBlur` leak check. Talk turns without a clean line were dropped.
+   `HandBlur` leak check. Talk turns without a clean line were dropped; when the solver chose
+   a different move than the line was written for, the line was rewritten for the new move.
+
+Revision `v2` of this dataset has the earlier House-Bot-labelled version.
 
 ## License
 

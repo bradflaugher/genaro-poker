@@ -79,9 +79,17 @@ def main() -> None:
     ap.add_argument("--batch", type=int, default=32)
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--teacher", default=TEACHER)
+    ap.add_argument("--relabel", choices=["majority", "solver"],
+                    help="rewrite the lines of talk turns whose move the new label changes (-> train-talk-<label>.jsonl)")
     a = ap.parse_args()
 
-    rows = sample(a.split, a.n, a.seed)
+    if a.relabel:
+        from genaro.build import labels, word
+        new = labels(a.relabel)
+        rows = [{**r, "teacher": new[r["id"]]} for r in map(json.loads, open(DATA / "train-sft-rows.jsonl"))
+                if r.get("say") and r["id"] in new and word(new[r["id"]]) != word(r["teacher"])]
+    else:
+        rows = sample(a.split, a.n, a.seed)
     talky = [r for r in rows if r["speak"]]
     print(f"{len(rows)} decisions, {len(talky)} talk turns")
     hw.setup()
@@ -90,7 +98,7 @@ def main() -> None:
     model = AutoModelForCausalLM.from_pretrained(a.teacher, dtype=torch.bfloat16, device_map="cuda",
                                                  attn_implementation={"": "sdpa", "text_config": "sdpa", "vision_config": "sdpa", "audio_config": "eager"})
     cands = generate(model, tok, [teacher_prompt(r) for r in talky], a.k, a.batch)
-    with open(DATA / f"{a.split}-teacher-raw.jsonl", "w") as f:
+    with open(DATA / (f"train-teacher-raw-{a.relabel}.jsonl" if a.relabel else f"{a.split}-teacher-raw.jsonl"), "w") as f:
         for r, cs in zip(talky, cands):
             f.write(json.dumps({"id": r["id"], "cands": cs}) + "\n")
 
@@ -112,6 +120,11 @@ def main() -> None:
             lines[rid] = c
     print(f"candidates {sum(len(c) for c in cands)}, passed shape/repeat {len(flat)}, leaked {n_leak}, "
           f"talk turns covered {len(lines)}/{len(talky)}")
+    if a.relabel:
+        with open(DATA / f"train-talk-{a.relabel}.jsonl", "w") as f:
+            for rid, say in lines.items():
+                f.write(json.dumps({"id": rid, "say": say}) + "\n")
+        return
     with open(DATA / f"{a.split}-sft-rows.jsonl", "w") as f:
         for r in rows:
             if r["speak"] and r["id"] not in lines:

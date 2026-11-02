@@ -5,7 +5,7 @@ model:
   name: Qwen/Qwen3-1.7B
 
 data:
-  path: sft-qwen3-maj  # uv run python -m genaro.build --model Qwen/Qwen3-1.7B --out sft-qwen3-maj  (majority labels)
+  path: sft-qwen3-solver  # make solve relabel-talk sft-data  (solver labels)
   n_eval: 256
 
 train:
